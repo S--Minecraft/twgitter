@@ -1,4 +1,7 @@
-#Fri Mar 13 05:08:30 JST 2009
-eclipse.preferences.version=1
 EXIT_PROMPT_ON_CLOSE_LAST_WINDOW=false
 IDE_ENCODINGS_PREFERENCE=MS932'EUC-JP
+PROBLEMS_FILTERS_MIGRATE=true
+eclipse.preferences.version=1
+platformState=1409202405159
+quickStart=false
+tipsAndTricks=true
