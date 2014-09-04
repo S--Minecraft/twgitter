@@ -1,0 +1,24 @@
+package twgitter;
+
+import twgitter.config.Config;
+import twitter4j.Status;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
+import twitter4j.TwitterStream;
+import twitter4j.TwitterStreamFactory;
+import twitter4j.User;
+import twitter4j.conf.Configuration;
+
+public class Sample2 {
+	public static void main(String[] args) throws TwitterException
+	{
+		Config.doConfig();
+		Configuration cfg=Config.cb.build();
+
+		TwitterStream twitterStream = new TwitterStreamFactory(cfg).getInstance();
+        twitterStream.addListener(new Listener());
+
+        twitterStream.sample();
+    }
+}

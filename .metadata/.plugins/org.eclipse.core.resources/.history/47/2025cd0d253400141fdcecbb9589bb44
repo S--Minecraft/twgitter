@@ -1,0 +1,9 @@
+package twgitter;
+
+import twitter4j.Status;
+
+public class Listener {
+	public void onStatus(Status status) {
+        System.out.println(status.getText());
+    }
+}

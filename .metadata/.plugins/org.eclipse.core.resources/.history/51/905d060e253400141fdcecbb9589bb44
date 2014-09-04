@@ -1,0 +1,12 @@
+package twgitter;
+
+import twitter4j.Status;
+import twitter4j.StatusAdapter;
+import twitter4j.StreamController.User;
+
+public class Listener extends StatusAdapter {
+	public void onStatus(Status status) {
+		twitter4j.User user = status.getUser();
+        System.out.println(status.getText());
+    }
+}
