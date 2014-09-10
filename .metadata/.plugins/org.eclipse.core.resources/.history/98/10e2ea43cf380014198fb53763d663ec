@@ -1,0 +1,7 @@
+package twgitter.appNet;
+
+public class Entities {
+	Hashtags hashtags;
+	Links links;
+	Mentions mentions;
+}

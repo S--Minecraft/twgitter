@@ -1,0 +1,19 @@
+import twgitter.get.GetHTTP;
+import twgitter.gitter.GetRooms;
+import twgitter.gitter.config.Config;
+import twgitter.twitter.UserStream;
+
+public class Test {
+	public static void main(String[] args) throws Exception {
+
+	String streamRoomId = GetRooms.roomNameToId("S--Minecraft/twgitter");
+	String URI = "https://stream.gitter.im/v1/rooms/" + streamRoomId + "/chatMessages";
+	String[][] Header = { {"Authorization", "Bearer " + Config.token}, {"Accept", "application/json"} };
+	String CharCode = "UTF-8";
+
+	GetHTTP.AccessHTTP(URI,Header,CharCode);
+
+	UserStream.main(args);
+
+	}
+}

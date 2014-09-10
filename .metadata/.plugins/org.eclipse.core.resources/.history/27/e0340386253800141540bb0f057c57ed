@@ -1,0 +1,5 @@
+package twgitter.gitter;
+
+public class Mention {
+
+}

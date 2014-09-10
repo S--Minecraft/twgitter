@@ -1,0 +1,56 @@
+package gitter;
+
+public class Room {
+	String roomID;
+	String roomName;
+	String roomTopic;
+	String roomOneToOne;
+	String roomUserCount;
+	String roomUnreadItems;
+	String roomMentions;
+	String roomLastAccessTime;
+	String roomLurk;
+	String roomGithubType;
+	String roomSecurity;
+	String roomPremium;
+	String roomNoindex;
+	String roomV;
+	String roomUri;
+
+	public String get(String thing)
+	{
+		if(thing.equals("roomID")) return roomID;
+		if(thing.equals("roomName")) return roomName;
+		if(thing.equals("roomTopic")) return roomTopic;
+		if(thing.equals("roomOneToOne")) return roomOneToOne;
+		if(thing.equals("roomUserCount")) return roomUserCount;
+		if(thing.equals("roomUnreadItems")) return roomUnreadItems;
+		if(thing.equals("roomMentions")) return roomMentions;
+		if(thing.equals("roomLastAccessTime")) return roomLastAccessTime;
+		if(thing.equals("roomLurk")) return roomLurk;
+		if(thing.equals("roomGithubType")) return roomGithubType;
+		if(thing.equals("roomSecurity")) return roomSecurity;
+		if(thing.equals("roomPremium")) return roomPremium;
+		if(thing.equals("roomNoindex")) return roomNoindex;
+		if(thing.equals("roomV")) return roomV;
+		if(thing.equals("roomUri")) return roomUri;
+
+		return null;
+	}
+
+	public String getRoomID(){return roomID;}
+	public String getRoomName(){return roomName;}
+	public String getRoomTopic(){return roomTopic;}
+	public String getRoomOneToOne(){return roomOneToOne;}
+	public String getRoomUserCount(){return roomUserCount;}
+	public String getRoomUnreadItems(){return roomUnreadItems;}
+	public String getRoomMentions(){return roomMentions;}
+	public String getRoomLastAccessTime(){return roomLastAccessTime;}
+	public String getRoomLurk(){return roomLurk;}
+	public String getRoomGithubType(){return roomGithubType;}
+	public String getRoomSecurity(){return roomSecurity;}
+	public String getRoomPremium(){return roomPremium;}
+	public String getRoomNoindex(){return roomNoindex;}
+	public String getRoomV(){return roomV;}
+	public String getRoomUri(){return roomUri;}
+}

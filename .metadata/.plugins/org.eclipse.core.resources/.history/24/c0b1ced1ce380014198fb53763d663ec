@@ -1,0 +1,6 @@
+package twgitter.appNet;
+
+public class AppNetStream {
+	Data data;
+	Meta meta;
+}

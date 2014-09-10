@@ -1,0 +1,58 @@
+package twgitter.gitter;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URI;
+import java.net.URLConnection;
+import java.util.List;
+import java.util.Map;
+
+import twgitter.gitter.config.Config;
+
+import com.google.gson.Gson;
+
+public class Streaming {
+	public static void main(String[] args) throws Exception {
+		// 引数からURIを生成
+		String streamRoomId = GetRooms.roomNameToId("S--Minecraft/twgitter");
+		String URI = "https://stream.gitter.im/v1/rooms/" + streamRoomId + "/chatMessages";
+		String[][] Header = { {"Authorization", "Bearer " + Config.token}, {"Accept", "application/json"} };
+		String CharCode = "UTF-8";
+
+		URI uri = new URI(URI);
+
+		// URI -> URL -> URLConnection の順で接続インスタンスを取得
+		URLConnection connection = uri.toURL().openConnection();
+
+		//ヘッダ設定
+		if(!(Header[0][0].equals("") && Header[0][1].equals("")))
+		{
+			for(int i=0;i<Header.length;i++)
+			{
+				connection.setRequestProperty(Header[i][0] ,Header[i][1]);
+			}
+		}
+
+		// ヘッダ情報を出力
+		Map<String, List<String>> headers = connection.getHeaderFields();
+		for (Object key : headers.keySet()) {
+			System.out.println("[Misc]HTTP Headers{" + key + ": " + headers.get(key) + "}");
+		}
+
+		// コンテンツを出力
+		BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), CharCode));
+		String buffer = reader.readLine();
+		System.out.println("[Misc]Successed to get HTTP");
+
+		while(null != buffer)
+		{
+			System.out.println("G:" + buffer);
+			buffer = reader.readLine();
+			Gson gson = new Gson();
+			ChatString string = gson.fromJson(buffer.toString(),ChatString.class);
+			//ChatFromUser user = string.getFromUser();
+			System.out.println(/*"[" + user.getDisplayName() + "(" + user.getUsername()  + ")]" + */string.getText());
+		}
+	}
+
+}

@@ -1,0 +1,6 @@
+package appNet.config;
+
+public class Config {
+	//App.netのアクセストークン
+	public static String token = "AQAAAAAAC9MsXO7oxo0HUUaIKJqv8vs6IG4b0UZbJgEQaaGs0WS4FY6IWF6i0k-srcqQwSHycILvBgj0IIAxeWUyqn-mMBfx7w";
+}

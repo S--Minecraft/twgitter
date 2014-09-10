@@ -1,0 +1,5 @@
+package gitter.config;
+
+public class Config {
+
+}

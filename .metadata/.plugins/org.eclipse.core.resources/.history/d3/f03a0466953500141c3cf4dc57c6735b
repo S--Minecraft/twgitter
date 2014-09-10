@@ -1,0 +1,17 @@
+package twgitter.gitter;
+
+public class ChatString {
+	String id;
+	String text;
+	String html;
+	String sent;
+	String editedAt;
+	ChatFromUser fromUser;
+	String unread;
+	String readBy;
+	String urls;
+	String mentions;
+	String issues;
+	String meta;
+	String v;
+}

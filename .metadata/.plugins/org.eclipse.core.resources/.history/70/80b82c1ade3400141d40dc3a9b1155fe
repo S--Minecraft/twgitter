@@ -1,0 +1,47 @@
+package gitter;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.Vector;
+
+public class TestCommand {
+
+	public static void main(String[] args) throws Exception {
+		/*
+		String[] command = { "cmd",
+							"curl -i -H \"Accept: application/json\" -H \"Authorization: Bearer f942da113703b8fb345a9277945098757265255e\" \"https://api.gitter.im/v1/rooms\" -k"
+							};
+		String[] json = GetRooms.execCommand(command);
+		String json0 = json[0];
+		String json1 = json[1];
+		String json2 = json[2];
+
+		System.out.println(command[1]);
+		System.out.println(json0);
+		System.out.println(json1);
+		System.out.println(json2);
+
+		*/
+
+		Runtime r = Runtime.getRuntime();
+		Process process = r.exec("java -version");
+		InputStream is = process.getInputStream();
+		Vector<String> vecOsOutput = StreamToVector(is);
+
+		for(int i=0; i< vecOsOutput.size(); i++){
+			System.out.println(vecOsOutput);
+	    }
+	}
+
+	private static Vector<String> StreamToVector(InputStream is) throws Exception {
+		  Vector<String> tb = new Vector<String>();
+		  BufferedReader br = new BufferedReader(new InputStreamReader(is));
+		  String s;
+		  while ((s = br.readLine()) != null) {
+		  	tb.add(s);
+		  }
+		  return tb;
+		  }
+
+}

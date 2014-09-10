@@ -1,0 +1,29 @@
+import twgitter.get.GetHTTP;
+import twgitter.gitter.ChatString;
+import twgitter.gitter.GetRooms;
+import twgitter.gitter.config.Config;
+
+import com.google.gson.Gson;
+
+public class Test {
+	public static void main(String[] args) throws Exception {
+
+	String streamRoomId = GetRooms.roomNameToId("S--Minecraft/twgitter");
+	System.out.println(streamRoomId + " _______ " + Config.token);
+	String URI = "https://stream.gitter.im/v1/rooms/" + streamRoomId + "/chatMessages";
+	String[][] Header = { {"Authorization", "Bearer " + Config.token}, {"Accept", "application/json"} };
+	String CharCode = "UTF-8";
+
+
+	StringBuilder streamStringBuilder = GetHTTP.AccessHTTP(URI,Header,CharCode);
+
+	System.out.println(GetHTTP.Out1.toString());
+
+	/*
+	Gson gson = new Gson();
+	ChatString chatString = gson.fromJson(streamStringBuilder.toString(),ChatString.class);
+
+	System.out.println("[" + chatString.getFromUser().getDisplayName() + "(" + chatString.getFromUser().getUsername()  + ")]" + chatString.getText());
+	}
+	*/
+}

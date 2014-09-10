@@ -1,0 +1,48 @@
+package twgitter.gitter;
+
+public class ChatString {
+	String id;
+	String text;
+	String html;
+	String sent;
+	String editedAt;
+	ChatFromUser fromUser;
+	String unread;
+	String readBy;
+	String urls;
+	String mentions;
+	String issues;
+	String meta;
+	String v;
+
+	public String get(String thing)
+	{
+		if(thing.equals("id")) return id;
+		if(thing.equals("text")) return text;
+		if(thing.equals("html")) return html;
+		if(thing.equals("sent")) return sent;
+		if(thing.equals("editedAt")) return editedAt;
+		if(thing.equals("unread")) return unread;
+		if(thing.equals("readBy")) return readBy;
+		if(thing.equals("urls")) return urls;
+		if(thing.equals("mentions")) return mentions;
+		if(thing.equals("issues")) return issues;
+		if(thing.equals("meta")) return meta;
+		if(thing.equals("v")) return v;
+		return null;
+	}
+
+	public String getId(){return id;}
+	public String getText(){return text;}
+	public String getHtml(){return html;}
+	public String getSent(){return sent;}
+	public String getEditedAt(){return editedAt;}
+	public String getUnread(){return unread;}
+	public String getReadBy(){return readBy;}
+	public String getUrls(){return urls;}
+	public String getMentions(){return mentions;}
+	public String getIssues(){return issues;}
+	public String getMeta(){return meta;}
+	public String getV(){return v;}
+	public ChatFromUser getFromUser(){return fromUser;}
+}

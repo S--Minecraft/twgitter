@@ -7,5 +7,6 @@
 	<classpathentry kind="lib" path="D:/Shun/Programming/java/twgitter/twitter4j/twitter4j-examples-4.0.2.jar"/>
 	<classpathentry kind="lib" path="D:/Shun/Programming/java/twgitter/twitter4j/twitter4j-media-support-4.0.2.jar"/>
 	<classpathentry kind="lib" path="D:/Shun/Programming/java/twgitter/twitter4j/twitter4j-stream-4.0.2.jar"/>
+	<classpathentry kind="lib" path="D:/Shun/Programming/java/twgitter/gson/gson-2.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

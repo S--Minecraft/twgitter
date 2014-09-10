@@ -1,0 +1,46 @@
+package gitter;
+
+import get.Command;
+
+import java.lang.reflect.Type;
+import java.util.Collection;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+public class GetRooms {
+	public static String getRooms() throws Exception
+	{
+		String command = "curl -i -H \"Accept: application/json\" -H \"Authorization: Bearer f942da113703b8fb345a9277945098757265255e\" \"https://api.gitter.im/v1/rooms\" -k";
+		String[] jsons = Command.execCommand(command);
+		String json = null;
+
+		//デバッグ
+		for(int i=0;i<jsons.length;i++)
+		{
+			System.out.println(jsons[i]);
+		}
+
+		if(jsons[0].equals("HTTP/1.1 200 OK"))
+		{
+			json = jsons[14];
+		}else if(jsons[0] == null){
+			System.out.println("Error CURL[command: \"curl can't use\"]");
+		}else{
+			System.out.println("Error CURL[command: \"curl gitter api\"]");
+		}
+
+		return json;
+	}
+
+	public static Room[] jsonToListRooms(String json)
+	{
+		Gson gson = new Gson();
+		Room[] rooms;
+		Type collectionType = new TypeToken<Collection<Room>>(){}.getType();
+
+		rooms = gson.fromJson(json.toString(),collectionType);
+
+		return rooms;
+	}
+}

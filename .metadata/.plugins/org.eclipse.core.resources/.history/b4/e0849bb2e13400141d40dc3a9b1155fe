@@ -1,0 +1,50 @@
+package gitter;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.Vector;
+
+public class GetRooms {
+	public static String[] getRooms() throws Exception
+	{
+		String command = "curl -i -H \"Accept: application/json\" -H \"Authorization: Bearer f942da113703b8fb345a9277945098757265255e\" \"https://api.gitter.im/v1/rooms\" -k";
+		String[] jsons = execCommand(command);
+
+		if(jsons[0] == "HTTP/1.1 200 OK")
+		{
+
+		}else if(jsons[0] == null){
+			System.out.println("Error[command: \"curl can't use\"]");
+		}else{
+			System.out.println("Error[command: \"curl gitter api\"]");
+		}
+
+		return jsons;
+	}
+
+	public static String[] execCommand(String command) throws Exception
+	{
+		Runtime r = Runtime.getRuntime();
+		Process process = r.exec(command);
+		InputStream is = process.getInputStream();
+		Vector<String> vecOsOutput = StreamToVector(is);
+
+		String[] returnVar = new String[vecOsOutput.size()];
+		for(int i=0; i< vecOsOutput.size(); i++){
+			returnVar[i] = vecOsOutput.get(i);
+		}
+
+		return returnVar;
+	}
+
+	private static Vector<String> StreamToVector(InputStream is) throws Exception {
+		Vector<String> tb = new Vector<String>();
+		BufferedReader br = new BufferedReader(new InputStreamReader(is));
+		String s;
+		while ((s = br.readLine()) != null) {
+			tb.add(s);
+		}
+		return tb;
+	}
+}

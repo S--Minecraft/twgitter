@@ -1,0 +1,6 @@
+package gitter.config;
+
+public class Config {
+	public static String token = "f942da113703b8fb345a9277945098757265255e";
+	public static String roomID = "";
+}

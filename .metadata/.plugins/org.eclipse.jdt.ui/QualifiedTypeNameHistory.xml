@@ -2,8 +2,6 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="twitter4j.Twitter"/>
 <fullyQualifiedTypeName name="twitter4j.TwitterFactory"/>
-<fullyQualifiedTypeName name="java.io.BufferedReader"/>
-<fullyQualifiedTypeName name="java.io.InputStreamReader"/>
 <fullyQualifiedTypeName name="twitter4j.TwitterException"/>
 <fullyQualifiedTypeName name="twitter4j.conf.ConfigurationBuilder"/>
 <fullyQualifiedTypeName name="twgitter.config.Config"/>
@@ -18,4 +16,27 @@
 <fullyQualifiedTypeName name="twitter4j.StreamController.User"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="twitter4j.HttpResponse"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="java.util.Vector"/>
+<fullyQualifiedTypeName name="com.google.gson.reflect.TypeToken"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="gitter.GetRooms"/>
+<fullyQualifiedTypeName name="gitter.Room"/>
+<fullyQualifiedTypeName name="get.Command"/>
+<fullyQualifiedTypeName name="gitter.config.Config"/>
+<fullyQualifiedTypeName name="twgitter.twitter.UserStream"/>
+<fullyQualifiedTypeName name="twgitter.gitter.ChatString"/>
+<fullyQualifiedTypeName name="java.io.UnsupportedEncodingException"/>
+<fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="java.net.URL"/>
+<fullyQualifiedTypeName name="java.net.HttpURLConnection"/>
+<fullyQualifiedTypeName name="java.net.Authenticator"/>
+<fullyQualifiedTypeName name="java.net.PasswordAuthentication"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="com.google.gson.Gson"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="twgitter.get.GetHTTP"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>
