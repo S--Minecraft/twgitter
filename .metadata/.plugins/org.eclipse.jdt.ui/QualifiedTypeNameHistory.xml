@@ -14,7 +14,6 @@
 <fullyQualifiedTypeName name="twitter4j.UserStreamAdapter"/>
 <fullyQualifiedTypeName name="twitter4j.Status"/>
 <fullyQualifiedTypeName name="twitter4j.StreamController.User"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="twitter4j.HttpResponse"/>
 <fullyQualifiedTypeName name="java.io.InputStream"/>
@@ -25,11 +24,8 @@
 <fullyQualifiedTypeName name="gitter.Room"/>
 <fullyQualifiedTypeName name="get.Command"/>
 <fullyQualifiedTypeName name="gitter.config.Config"/>
-<fullyQualifiedTypeName name="twgitter.twitter.UserStream"/>
 <fullyQualifiedTypeName name="twgitter.gitter.ChatString"/>
 <fullyQualifiedTypeName name="java.io.UnsupportedEncodingException"/>
-<fullyQualifiedTypeName name="java.io.InputStreamReader"/>
-<fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="java.net.URL"/>
 <fullyQualifiedTypeName name="java.net.HttpURLConnection"/>
 <fullyQualifiedTypeName name="java.net.Authenticator"/>
@@ -39,4 +35,20 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="twgitter.get.GetHTTP"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="twgitter.appNet.Streaming"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="twgitter.appNet.StreamGetter"/>
+<fullyQualifiedTypeName name="twgitter.gitter.Streaming"/>
+<fullyQualifiedTypeName name="twgitter.twitter.UserStream"/>
+<fullyQualifiedTypeName name="java.io.BufferedWriter"/>
+<fullyQualifiedTypeName name="java.net.Socket"/>
+<fullyQualifiedTypeName name="java.io.OutputStreamWriter"/>
+<fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="jerklib.ConnectionManager"/>
+<fullyQualifiedTypeName name="jerklib.Profile"/>
+<fullyQualifiedTypeName name="jerklib.events.IRCEvent"/>
+<fullyQualifiedTypeName name="jerklib.events.IRCEvent.Type"/>
+<fullyQualifiedTypeName name="jerklib.events.JoinCompleteEvent"/>
 </qualifiedTypeNameHistroy>

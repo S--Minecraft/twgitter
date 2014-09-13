@@ -1,13 +1,13 @@
 package twgitter.twitter;
 
 import twgitter.twitter.config.Config;
-import twitter4j.TwitterException;
 import twitter4j.TwitterStream;
 import twitter4j.TwitterStreamFactory;
 import twitter4j.conf.Configuration;
 
-public class UserStream {
-	public static void main(String[] args) throws TwitterException
+public class UserStream extends Thread{
+	//public static void twitterUserStream() throws TwitterException
+	public void run()
 	{
 		Config.doConfig();
 		Configuration cfg=Config.cb.build();

@@ -1,29 +1,48 @@
 package twgitter.gitter;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URLConnection;
-import java.util.List;
-import java.util.Map;
 
 import twgitter.gitter.config.Config;
 
 import com.google.gson.Gson;
 
-public class Streaming {
-	public static void main(String[] args) throws Exception {
+public class Streaming extends Thread {
+	public String room;
+
+	//public static void gitterStreaming(String roomName) throws Exception {
+	public void run(String roomName) {
 		// 引数からURIを生成
-		String streamRoomId = GetRooms.roomNameToId("S--Minecraft/twgitter");
+		String streamRoomId = "";
+		try {
+			streamRoomId = GetRooms.roomNameToId(roomName);
+			//System.out.println(streamRoomId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		String URI = "https://stream.gitter.im/v1/rooms/" + streamRoomId + "/chatMessages";
 		String[][] Header = { {"Authorization", "Bearer " + Config.token}, {"Accept", "application/json"} };
 		String CharCode = "UTF-8";
 		Gson gson = new Gson();
 
-		URI uri = new URI(URI);
+		URI uri =null;
+		try {
+			uri = new URI(URI);
+		} catch (URISyntaxException e1) {
+			e1.printStackTrace();
+		}
 
 		// URI -> URL -> URLConnection の順で接続インスタンスを取得
-		URLConnection connection = uri.toURL().openConnection();
+		URLConnection connection = null;
+		try {
+			connection = uri.toURL().openConnection();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 		//ヘッダ設定
 		if(!(Header[0][0].equals("") && Header[0][1].equals("")))
@@ -35,19 +54,31 @@ public class Streaming {
 		}
 
 		// ヘッダ情報を出力
+		/*
 		Map<String, List<String>> headers = connection.getHeaderFields();
 		for (Object key : headers.keySet()) {
 			System.out.println("[Misc]HTTP Headers{" + key + ": " + headers.get(key) + "}");
 		}
+		*/
 
 		// コンテンツを出力
-		BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), CharCode));
-		String buffer = reader.readLine();
+		BufferedReader reader = null;
+		try {
+			reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), CharCode));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		String buffer = null;
+		try {
+			buffer = reader.readLine();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		System.out.println("[Misc]Successed to get HTTP");
 
 		while(null != buffer)
 		{
-			System.out.println("G:" + buffer);
+			//System.out.println("G:" + buffer);
 			char[] bufferChar = buffer.toCharArray();
 			/*
 			if(bufferChar[0] == '[')
@@ -79,14 +110,22 @@ public class Streaming {
 
 					System.out.println(Out);
 				}else{*/
-					System.out.println("[Gitter][" + user.getDisplayName() + "(" + user.getUsername()  + ")]" + chat.getText());
+					System.out.println("[Gitter][" + user.getDisplayName() + "(@" + user.getUsername()  + ")]" + chat.getText());
 				//}
 			}else if(bufferChar[0] == ' '){
-				System.out.println("[Gitter]No new chats now.");
+				//System.out.println("[Gitter]No new chats now.");
 			}else{
 				System.out.println("[Gitter]Undefind buffer case...");
 			}
-		buffer = reader.readLine();
+		try {
+			buffer = reader.readLine();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
+		}
+	}
+
+	public void start(String roomName) {
+		run(roomName);
 	}
 }

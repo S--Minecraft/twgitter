@@ -1,0 +1,7 @@
+package twgitter.IRC.config;
+
+import com.mac.tarchan.irc.client.IRCClient;
+
+public class Config{
+
+}

@@ -12,7 +12,7 @@ public class MyUserStreamAdapter extends UserStreamAdapter {
         super.onStatus(status);
         twitter4j.User user = status.getUser();
 
-        System.out.println("[Twitter][" + getCurrentDateString() + "][" + user.getName() + "(@" + user.getScreenName() + ")]" + status.getText());
+        System.out.println("[Twitter]" + /*"[" + getCurrentDateString() + "]" + */"[" + user.getName() + "(@" + user.getScreenName() + ")]" + status.getText());
     }
 
 	public String getCurrentDateString()

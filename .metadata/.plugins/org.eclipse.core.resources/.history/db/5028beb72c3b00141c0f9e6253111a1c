@@ -1,0 +1,15 @@
+import twgitter.appNet.StreamGetter;
+import twgitter.gitter.Streaming;
+import twgitter.twitter.UserStream;
+
+
+public class Test {
+	public static void main(String[] args) throws Exception {
+		StreamGetter.getStream();
+		Streaming.gitterStreaming("S--Minecraft/twgitter");
+		UserStream.twitterUserStream();
+
+		//GetMessages.getMessages("irc.friend-chat.jp:6667","S__twgitter");
+
+	}
+}

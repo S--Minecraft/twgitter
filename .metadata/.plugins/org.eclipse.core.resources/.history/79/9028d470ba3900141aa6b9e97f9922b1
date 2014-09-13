@@ -1,0 +1,27 @@
+package twgitter.appNet;
+
+import java.util.Date;
+
+public class StreamGetter {
+	public static void getStream() throws Exception
+	{
+		Date lastdate = new Date(0);
+		System.out.println(lastdate);
+
+		for(;;)
+		{
+			Date newlastdate = new Date();
+			newlastdate = Streaming.streaming(lastdate);
+
+			System.out.println(lastdate);
+			System.out.println(newlastdate);
+
+			lastdate = newlastdate;
+
+			System.out.println(lastdate);
+			System.out.println(newlastdate);
+
+			Thread.sleep(10000);
+		}
+	}
+}

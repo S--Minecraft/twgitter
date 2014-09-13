@@ -1,0 +1,5 @@
+package twgitter.IRC.config;
+
+public class Config{
+
+}

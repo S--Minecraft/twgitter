@@ -1,8 +1,0 @@
-package gitter;
-
-public class GetHTTP {
-	public void getHTTP()
-	{
-
-	}
-}

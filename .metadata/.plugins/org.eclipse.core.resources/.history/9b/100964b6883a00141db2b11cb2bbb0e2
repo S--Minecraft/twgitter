@@ -1,0 +1,8 @@
+package twgitter.IRC;
+
+import jerklib.ConnectionManager;
+import jerklib.Profile;
+
+public class GetMessages {
+
+}

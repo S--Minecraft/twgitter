@@ -1,0 +1,8 @@
+
+public class Test {
+	public static void main(String[] args) throws Exception {
+		//StreamGetter.getStream();
+		//Streaming.gitterStreaming("S--Minecraft/twgitter");
+
+	}
+}

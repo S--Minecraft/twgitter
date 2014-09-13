@@ -1,0 +1,21 @@
+import java.util.Date;
+
+import twgitter.appNet.Streaming;
+
+public class Test {
+	public static void main(String[] args) throws Exception {
+		Date lastdate = new Date(0);
+		for(;;)
+		{
+			Date newlastdate = new Date();
+			newlastdate = Streaming.streaming(lastdate);
+
+			lastdate = newlastdate;
+
+			System.out.println(lastdate);
+			System.out.println(newlastdate);
+
+			Thread.sleep(10000);
+		}
+	}
+}

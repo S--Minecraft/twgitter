@@ -1,0 +1,17 @@
+import twgitter.IRC.IRC;
+
+public class Test {
+	public static void main(String[] args) throws Exception {
+		//StreamGetter.getStream();
+		//Streaming.gitterStreaming("S--Minecraft/twgitter");
+		//UserStream.twitterUserStream();
+
+		String[] a = {"-server","irc.friend-chat.jp:6667","-nick","S__twgitter"/*,"-user","S__twgitter", "-name S__twgitter"*/};
+
+		for(int i=0;i<a.length;i++)
+		{
+			System.out.println(a[i]);
+		}
+		IRC.main(a);
+	}
+}

@@ -1,0 +1,36 @@
+package twgitter.appNet;
+
+import java.util.List;
+
+import twgitter.gitter.Meta;
+
+public class Data {
+	String canonical_url;
+	String created_at;
+	Entities entities;
+	String html;
+	String id;
+	boolean machine_only;
+	int num_replies;
+	int num_reposts;
+	int num_stars;
+	Source source;
+	String text;
+	String thread_id;
+	User user;
+	boolean you_reposted;
+	boolean you_starred;
+	int pagination_id;
+
+
+	public String getCranonical_url(){return canonical_url;}
+	public String getCreated_at(){return created_at;}
+	public Entities getEntities(){return entities;}
+	public Meta getMeta(){return meta;}
+	public List<Data> getData(){return data;}
+	public Meta getMeta(){return meta;}
+	public List<Data> getData(){return data;}
+	public Meta getMeta(){return meta;}
+	public List<Data> getData(){return data;}
+	public Meta getMeta(){return meta;}
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<runner version="1.0.0">
+<category name="カテゴリーなし">
+<launchConfiguration bookmark="false" name="IRC"/>
+<launchConfiguration bookmark="false" name="Test"/>
+<launchConfiguration bookmark="false" name="TestThead"/>
+<launchConfiguration bookmark="false" name="Tweet"/>
+<launchConfiguration bookmark="false" name="UserStream"/>
+<launchConfiguration bookmark="false" name="[AppNet]Streaming"/>
+<launchConfiguration bookmark="false" name="[Gitter]Streaming"/>
+</category>
+</runner>
