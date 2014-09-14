@@ -1,0 +1,6 @@
+package twgitter.croudia;
+
+public class Source {
+	String name;
+	String url;
+}

@@ -19,6 +19,7 @@ public class GetRooms {
 	 */
 	public static String getRooms() throws Exception
 	{
+		//curl -i -H "Accept: application/json" -H "Authorization: Bearer f942da113703b8fb345a9277945098757265255e" "https://api.gitter.im/v1/rooms" -k
 		String command = "curl -i -H \"Accept: application/json\" -H \"Authorization: Bearer " + Config.token + "\" \"https://api.gitter.im/v1/rooms\" -k";
 		String[] jsons = Command.execCommand(command);
 		String json = null;

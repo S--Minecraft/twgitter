@@ -1,3 +1,4 @@
 eclipse.preferences.version=1
 externalMigrateFromAuthorizationDatabase/isMigrated=true
 migrateFromAuthorizationDatabase/isMigrated=true
+repositories/40c457b1c63b00141cb2cb479999ae04=40c457b1c63b00141cb2cb479999ae04;http\://oauth.googlecode.com/svn/code/;http\://oauth.googlecode.com/svn/code/;branches;tags;trunk;true;f7ae4463-c52f-0410-a7dc-93bad6e629e8;http\://oauth.googlecode.com/svn;;false;;;0

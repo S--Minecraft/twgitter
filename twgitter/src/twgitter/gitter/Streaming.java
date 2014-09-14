@@ -12,13 +12,19 @@ import twgitter.gitter.config.Config;
 import com.google.gson.Gson;
 
 public class Streaming extends Thread {
-	public String room;
+	public String roomName;
+
+	public Streaming(String room){
+		roomName = room;
+		//System.out.println(roomName);
+	}
 
 	//public static void gitterStreaming(String roomName) throws Exception {
-	public void run(String roomName) {
+	public void run() {
 		// 引数からURIを生成
 		String streamRoomId = "";
 		try {
+			//System.out.println(roomName);
 			streamRoomId = GetRooms.roomNameToId(roomName);
 			//System.out.println(streamRoomId);
 		} catch (Exception e) {
@@ -125,7 +131,9 @@ public class Streaming extends Thread {
 		}
 	}
 
+	/*
 	public void start(String roomName) {
 		run(roomName);
 	}
+	*/
 }

@@ -1,0 +1,19 @@
+package twgitter.croudia;
+
+import twgitter.croudia.config.Config;
+import twgitter.get.Command;
+
+public class GetOAuth {
+	public static void main(String[] args) throws Exception {
+		//curl -k https://api.croudia.com/oauth/authorize?response_type=code&client_id=a22268f222dd11a7f32325f5234445f9a52efa9f62b63f5fb43133defd18fcdf&state=twgitter
+		String[] a = Command.execCommand("curl -k \"https://api.croudia.com/oauth/authorize?response_type=code&client_id=" + Config.ConsumerKey + "&state=twgitter\"");
+
+		//curl -k -F "grant_type=authorization_code" -F "client_id=a22268f222dd11a7f32325f5234445f9a52efa9f62b63f5fb43133defd18fcdf" -F "client_secret=0e32069c074722e3e06df23fa701629bd32f1eff554b2c678630882ea5e1f87c " -F "code=aa0213957409081293d28006779fb1b4d6ff5b81b65d241fffeb935f45181af6" https://api.croudia.com/oauth/token
+		//String[] jsonString = Command.execCommand("curl -k -F \"grant_type=authorization_code\" -F \"client_id=" + Config.ConsumerKey + "\" -F \"client_secret=" + Config.ConsumerSecret + "\" -F \"code=aa0213957409081293d28006779fb1b4d6ff5b81b65d241fffeb935f45181af6\" https://api.croudia.com/oauth/token");
+
+		for(int i=0;i<a.length;i++)
+		{
+			System.out.println(a[0]);
+		}
+	}
+}

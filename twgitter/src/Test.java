@@ -8,8 +8,8 @@ public class Test {
 		StreamGetter appNet = new StreamGetter();
 		appNet.run();
 		*/
-		Streaming gitter = new Streaming();
-		gitter.run("S--Minecraft/twgitter");
+		Streaming gitter = new Streaming("S--Minecraft/twgitter");
+		gitter.run();
 		/*
 		UserStream twitter = new UserStream();
 		twitter.run();

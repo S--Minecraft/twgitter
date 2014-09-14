@@ -7452,3 +7452,385 @@ java.lang.IllegalArgumentException: Argument not valid
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2014-09-13 22:34:00.210
 !MESSAGE Can't handle %s as parent of completion location.
+!SESSION 2014-09-14 10:36:18.341 -----------------------------------------------
+eclipse.buildId=4.4.0.I20140606-1215
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ja_JP
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.recommenders.apidocs.rcp 4 0 2014-09-14 10:36:32.326
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.recommenders.apidocs.rcp [923]
+  Unresolved requirement: Require-Bundle: org.eclipse.recommenders.calls; bundle-version="2.0.0"
+    -> Bundle-SymbolicName: org.eclipse.recommenders.calls; bundle-version="2.1.0.v20140527-1146"
+       org.eclipse.recommenders.calls [924]
+         Unresolved requirement: Require-Bundle: org.eclipse.recommenders.models; bundle-version="2.0.0"
+           -> Bundle-SymbolicName: org.eclipse.recommenders.models; bundle-version="2.1.0.v20140526-1706"
+              org.eclipse.recommenders.models [931]
+                No resolution report for the bundle.  Unresolved requirement: Require-Bundle: org.eclipse.recommenders.models.rcp; bundle-version="2.0.0"
+    -> Bundle-SymbolicName: org.eclipse.recommenders.models.rcp; bundle-version="2.1.0.v20140602-1202"; singleton:="true"
+       org.eclipse.recommenders.models.rcp [932]
+         Unresolved requirement: Require-Bundle: org.eclipse.recommenders.models; bundle-version="2.0.0"
+           -> Bundle-SymbolicName: org.eclipse.recommenders.models; bundle-version="2.1.0.v20140526-1706"
+  Unresolved requirement: Require-Bundle: org.eclipse.recommenders.apidocs; bundle-version="2.0.0"
+    -> Bundle-SymbolicName: org.eclipse.recommenders.apidocs; bundle-version="2.1.0.v20140526-1706"
+       org.eclipse.recommenders.apidocs [922]
+         Unresolved requirement: Require-Bundle: org.eclipse.recommenders.models
+           -> Bundle-SymbolicName: org.eclipse.recommenders.models; bundle-version="2.1.0.v20140526-1706"
+  Unresolved requirement: Require-Bundle: org.eclipse.recommenders.models; bundle-version="2.0.0"
+    -> Bundle-SymbolicName: org.eclipse.recommenders.models; bundle-version="2.1.0.v20140526-1706"
+  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.eclipse.recommenders.models [osgi.identity; osgi.identity="org.eclipse.recommenders.models"; type="osgi.bundle"; version:Version="2.1.0.v20140526-1706"] because it is exposed to package 'org.eclipse.aether.impl' from resources org.eclipse.aether.impl [osgi.identity; osgi.identity="org.eclipse.aether.impl"; type="osgi.bundle"; version:Version="1.0.0.v20140518"] and org.eclipse.m2e.maven.runtime [osgi.identity; osgi.identity="org.eclipse.m2e.maven.runtime"; type="osgi.bundle"; version:Version="1.5.0.20140605-2032"; singleton:="false"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.recommenders.models [osgi.identity; osgi.identity="org.eclipse.recommenders.models"; type="osgi.bundle"; version:Version="2.1.0.v20140526-1706"]
+    import: (&(osgi.wiring.package=org.eclipse.aether.impl)(&(version>=1.0.0)(!(version>=1.1.0))))
+     |
+    export: osgi.wiring.package: org.eclipse.aether.impl
+  org.eclipse.aether.impl [osgi.identity; osgi.identity="org.eclipse.aether.impl"; type="osgi.bundle"; version:Version="1.0.0.v20140518"]
+
+Chain 2:
+  org.eclipse.recommenders.models [osgi.identity; osgi.identity="org.eclipse.recommenders.models"; type="osgi.bundle"; version:Version="2.1.0.v20140526-1706"]
+    import: (&(osgi.wiring.package=org.apache.maven.repository.internal)(&(version>=3.1.0)(!(version>=3.2.0))))
+     |
+    export: osgi.wiring.package=org.apache.maven.repository.internal; uses:=org.eclipse.aether.impl
+  org.eclipse.aether.maven [osgi.identity; osgi.identity="org.eclipse.aether.maven"; type="osgi.bundle"; version:Version="3.1.0.v20140524-1439"]
+    import: (&(osgi.wiring.package=org.eclipse.aether.impl)(&(version>=0.9.0)(!(version>=1.1.0))))
+     |
+    export: osgi.wiring.package: org.eclipse.aether.impl
+  org.eclipse.m2e.maven.runtime [osgi.identity; osgi.identity="org.eclipse.m2e.maven.runtime"; type="osgi.bundle"; version:Version="1.5.0.20140605-2032"; singleton:="false"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.recommenders.models 4 0 2014-09-14 10:36:32.514
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.recommenders.models [931]
+  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.eclipse.recommenders.models [osgi.identity; osgi.identity="org.eclipse.recommenders.models"; type="osgi.bundle"; version:Version="2.1.0.v20140526-1706"] because it is exposed to package 'org.eclipse.aether.impl' from resources org.eclipse.aether.impl [osgi.identity; osgi.identity="org.eclipse.aether.impl"; type="osgi.bundle"; version:Version="1.0.0.v20140518"] and org.eclipse.m2e.maven.runtime [osgi.identity; osgi.identity="org.eclipse.m2e.maven.runtime"; type="osgi.bundle"; version:Version="1.5.0.20140605-2032"; singleton:="false"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.recommenders.models [osgi.identity; osgi.identity="org.eclipse.recommenders.models"; type="osgi.bundle"; version:Version="2.1.0.v20140526-1706"]
+    import: (&(osgi.wiring.package=org.eclipse.aether.impl)(&(version>=1.0.0)(!(version>=1.1.0))))
+     |
+    export: osgi.wiring.package: org.eclipse.aether.impl
+  org.eclipse.aether.impl [osgi.identity; osgi.identity="org.eclipse.aether.impl"; type="osgi.bundle"; version:Version="1.0.0.v20140518"]
+
+Chain 2:
+  org.eclipse.recommenders.models [osgi.identity; osgi.identity="org.eclipse.recommenders.models"; type="osgi.bundle"; version:Version="2.1.0.v20140526-1706"]
+    import: (&(osgi.wiring.package=org.apache.maven.repository.internal)(&(version>=3.1.0)(!(version>=3.2.0))))
+     |
+    export: osgi.wiring.package=org.apache.maven.repository.internal; uses:=org.eclipse.aether.impl
+  org.eclipse.aether.maven [osgi.identity; osgi.identity="org.eclipse.aether.maven"; type="osgi.bundle"; version:Version="3.1.0.v20140524-1439"]
+    import: (&(osgi.wiring.package=org.eclipse.aether.impl)(&(version>=0.9.0)(!(version>=1.1.0))))
+     |
+    export: osgi.wiring.package: org.eclipse.aether.impl
+  org.eclipse.m2e.maven.runtime [osgi.identity; osgi.identity="org.eclipse.m2e.maven.runtime"; type="osgi.bundle"; version:Version="1.5.0.20140605-2032"; singleton:="false"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-09-14 11:25:23.708
+!MESSAGE Can't handle %s as parent of completion location.
+!SESSION 2014-09-14 11:41:59.924 -----------------------------------------------
+eclipse.buildId=4.4.0.I20140606-1215
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ja_JP
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.recommenders.apidocs.rcp 4 0 2014-09-14 11:42:01.464
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.recommenders.apidocs.rcp [923]
+  Unresolved requirement: Require-Bundle: org.eclipse.recommenders.models.rcp; bundle-version="2.0.0"
+    -> Bundle-SymbolicName: org.eclipse.recommenders.models.rcp; bundle-version="2.1.0.v20140602-1202"; singleton:="true"
+       org.eclipse.recommenders.models.rcp [932]
+         Unresolved requirement: Require-Bundle: org.eclipse.recommenders.models; bundle-version="2.0.0"
+           -> Bundle-SymbolicName: org.eclipse.recommenders.models; bundle-version="2.1.0.v20140526-1706"
+              org.eclipse.recommenders.models [931]
+                No resolution report for the bundle.  Unresolved requirement: Require-Bundle: org.eclipse.recommenders.apidocs; bundle-version="2.0.0"
+    -> Bundle-SymbolicName: org.eclipse.recommenders.apidocs; bundle-version="2.1.0.v20140526-1706"
+       org.eclipse.recommenders.apidocs [922]
+         Unresolved requirement: Require-Bundle: org.eclipse.recommenders.models
+           -> Bundle-SymbolicName: org.eclipse.recommenders.models; bundle-version="2.1.0.v20140526-1706"
+  Unresolved requirement: Require-Bundle: org.eclipse.recommenders.models; bundle-version="2.0.0"
+    -> Bundle-SymbolicName: org.eclipse.recommenders.models; bundle-version="2.1.0.v20140526-1706"
+  Unresolved requirement: Require-Bundle: org.eclipse.recommenders.calls; bundle-version="2.0.0"
+    -> Bundle-SymbolicName: org.eclipse.recommenders.calls; bundle-version="2.1.0.v20140527-1146"
+       org.eclipse.recommenders.calls [924]
+         Unresolved requirement: Require-Bundle: org.eclipse.recommenders.models; bundle-version="2.0.0"
+           -> Bundle-SymbolicName: org.eclipse.recommenders.models; bundle-version="2.1.0.v20140526-1706"
+  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.eclipse.recommenders.models [osgi.identity; osgi.identity="org.eclipse.recommenders.models"; type="osgi.bundle"; version:Version="2.1.0.v20140526-1706"] because it is exposed to package 'org.eclipse.aether.impl' from resources org.eclipse.aether.impl [osgi.identity; osgi.identity="org.eclipse.aether.impl"; type="osgi.bundle"; version:Version="1.0.0.v20140518"] and org.eclipse.m2e.maven.runtime [osgi.identity; osgi.identity="org.eclipse.m2e.maven.runtime"; type="osgi.bundle"; version:Version="1.5.0.20140605-2032"; singleton:="false"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.recommenders.models [osgi.identity; osgi.identity="org.eclipse.recommenders.models"; type="osgi.bundle"; version:Version="2.1.0.v20140526-1706"]
+    import: (&(osgi.wiring.package=org.eclipse.aether.impl)(&(version>=1.0.0)(!(version>=1.1.0))))
+     |
+    export: osgi.wiring.package: org.eclipse.aether.impl
+  org.eclipse.aether.impl [osgi.identity; osgi.identity="org.eclipse.aether.impl"; type="osgi.bundle"; version:Version="1.0.0.v20140518"]
+
+Chain 2:
+  org.eclipse.recommenders.models [osgi.identity; osgi.identity="org.eclipse.recommenders.models"; type="osgi.bundle"; version:Version="2.1.0.v20140526-1706"]
+    import: (&(osgi.wiring.package=org.apache.maven.repository.internal)(&(version>=3.1.0)(!(version>=3.2.0))))
+     |
+    export: osgi.wiring.package=org.apache.maven.repository.internal; uses:=org.eclipse.aether.impl
+  org.eclipse.aether.maven [osgi.identity; osgi.identity="org.eclipse.aether.maven"; type="osgi.bundle"; version:Version="3.1.0.v20140524-1439"]
+    import: (&(osgi.wiring.package=org.eclipse.aether.impl)(&(version>=0.9.0)(!(version>=1.1.0))))
+     |
+    export: osgi.wiring.package: org.eclipse.aether.impl
+  org.eclipse.m2e.maven.runtime [osgi.identity; osgi.identity="org.eclipse.m2e.maven.runtime"; type="osgi.bundle"; version:Version="1.5.0.20140605-2032"; singleton:="false"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.recommenders.models 4 0 2014-09-14 11:42:01.511
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.recommenders.models [931]
+  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.eclipse.recommenders.models [osgi.identity; osgi.identity="org.eclipse.recommenders.models"; type="osgi.bundle"; version:Version="2.1.0.v20140526-1706"] because it is exposed to package 'org.eclipse.aether.impl' from resources org.eclipse.aether.impl [osgi.identity; osgi.identity="org.eclipse.aether.impl"; type="osgi.bundle"; version:Version="1.0.0.v20140518"] and org.eclipse.m2e.maven.runtime [osgi.identity; osgi.identity="org.eclipse.m2e.maven.runtime"; type="osgi.bundle"; version:Version="1.5.0.20140605-2032"; singleton:="false"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.recommenders.models [osgi.identity; osgi.identity="org.eclipse.recommenders.models"; type="osgi.bundle"; version:Version="2.1.0.v20140526-1706"]
+    import: (&(osgi.wiring.package=org.eclipse.aether.impl)(&(version>=1.0.0)(!(version>=1.1.0))))
+     |
+    export: osgi.wiring.package: org.eclipse.aether.impl
+  org.eclipse.aether.impl [osgi.identity; osgi.identity="org.eclipse.aether.impl"; type="osgi.bundle"; version:Version="1.0.0.v20140518"]
+
+Chain 2:
+  org.eclipse.recommenders.models [osgi.identity; osgi.identity="org.eclipse.recommenders.models"; type="osgi.bundle"; version:Version="2.1.0.v20140526-1706"]
+    import: (&(osgi.wiring.package=org.apache.maven.repository.internal)(&(version>=3.1.0)(!(version>=3.2.0))))
+     |
+    export: osgi.wiring.package=org.apache.maven.repository.internal; uses:=org.eclipse.aether.impl
+  org.eclipse.aether.maven [osgi.identity; osgi.identity="org.eclipse.aether.maven"; type="osgi.bundle"; version:Version="3.1.0.v20140524-1439"]
+    import: (&(osgi.wiring.package=org.eclipse.aether.impl)(&(version>=0.9.0)(!(version>=1.1.0))))
+     |
+    export: osgi.wiring.package: org.eclipse.aether.impl
+  org.eclipse.m2e.maven.runtime [osgi.identity; osgi.identity="org.eclipse.m2e.maven.runtime"; type="osgi.bundle"; version:Version="1.5.0.20140605-2032"; singleton:="false"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.equinox.security 1 0 2014-09-14 13:23:09.856
+!MESSAGE 新規鍵リング・パスワードが生成されました。 
+
+!ENTRY org.eclipse.core.jobs 2 2 2014-09-14 13:25:05.320
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.team.internal.ui.actions.JobRunnableContext$ResourceJob
+!SESSION 2014-09-14 13:25:08.426 -----------------------------------------------
+eclipse.buildId=4.4.0.I20140606-1215
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ja_JP
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.recommenders.apidocs.rcp 4 0 2014-09-14 13:25:11.634
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.recommenders.apidocs.rcp [923]
+  Unresolved requirement: Require-Bundle: org.eclipse.recommenders.calls; bundle-version="2.0.0"
+    -> Bundle-SymbolicName: org.eclipse.recommenders.calls; bundle-version="2.1.0.v20140527-1146"
+       org.eclipse.recommenders.calls [924]
+         Unresolved requirement: Require-Bundle: org.eclipse.recommenders.models; bundle-version="2.0.0"
+           -> Bundle-SymbolicName: org.eclipse.recommenders.models; bundle-version="2.1.0.v20140526-1706"
+              org.eclipse.recommenders.models [931]
+                No resolution report for the bundle.  Unresolved requirement: Require-Bundle: org.eclipse.recommenders.models.rcp; bundle-version="2.0.0"
+    -> Bundle-SymbolicName: org.eclipse.recommenders.models.rcp; bundle-version="2.1.0.v20140602-1202"; singleton:="true"
+       org.eclipse.recommenders.models.rcp [932]
+         Unresolved requirement: Require-Bundle: org.eclipse.recommenders.models; bundle-version="2.0.0"
+           -> Bundle-SymbolicName: org.eclipse.recommenders.models; bundle-version="2.1.0.v20140526-1706"
+  Unresolved requirement: Require-Bundle: org.eclipse.recommenders.apidocs; bundle-version="2.0.0"
+    -> Bundle-SymbolicName: org.eclipse.recommenders.apidocs; bundle-version="2.1.0.v20140526-1706"
+       org.eclipse.recommenders.apidocs [922]
+         Unresolved requirement: Require-Bundle: org.eclipse.recommenders.models
+           -> Bundle-SymbolicName: org.eclipse.recommenders.models; bundle-version="2.1.0.v20140526-1706"
+  Unresolved requirement: Require-Bundle: org.eclipse.recommenders.models; bundle-version="2.0.0"
+    -> Bundle-SymbolicName: org.eclipse.recommenders.models; bundle-version="2.1.0.v20140526-1706"
+  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.eclipse.recommenders.models [osgi.identity; osgi.identity="org.eclipse.recommenders.models"; type="osgi.bundle"; version:Version="2.1.0.v20140526-1706"] because it is exposed to package 'org.eclipse.aether.impl' from resources org.eclipse.aether.impl [osgi.identity; osgi.identity="org.eclipse.aether.impl"; type="osgi.bundle"; version:Version="1.0.0.v20140518"] and org.eclipse.m2e.maven.runtime [osgi.identity; osgi.identity="org.eclipse.m2e.maven.runtime"; type="osgi.bundle"; version:Version="1.5.0.20140605-2032"; singleton:="false"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.recommenders.models [osgi.identity; osgi.identity="org.eclipse.recommenders.models"; type="osgi.bundle"; version:Version="2.1.0.v20140526-1706"]
+    import: (&(osgi.wiring.package=org.eclipse.aether.impl)(&(version>=1.0.0)(!(version>=1.1.0))))
+     |
+    export: osgi.wiring.package: org.eclipse.aether.impl
+  org.eclipse.aether.impl [osgi.identity; osgi.identity="org.eclipse.aether.impl"; type="osgi.bundle"; version:Version="1.0.0.v20140518"]
+
+Chain 2:
+  org.eclipse.recommenders.models [osgi.identity; osgi.identity="org.eclipse.recommenders.models"; type="osgi.bundle"; version:Version="2.1.0.v20140526-1706"]
+    import: (&(osgi.wiring.package=org.apache.maven.repository.internal)(&(version>=3.1.0)(!(version>=3.2.0))))
+     |
+    export: osgi.wiring.package=org.apache.maven.repository.internal; uses:=org.eclipse.aether.impl
+  org.eclipse.aether.maven [osgi.identity; osgi.identity="org.eclipse.aether.maven"; type="osgi.bundle"; version:Version="3.1.0.v20140524-1439"]
+    import: (&(osgi.wiring.package=org.eclipse.aether.impl)(&(version>=0.9.0)(!(version>=1.1.0))))
+     |
+    export: osgi.wiring.package: org.eclipse.aether.impl
+  org.eclipse.m2e.maven.runtime [osgi.identity; osgi.identity="org.eclipse.m2e.maven.runtime"; type="osgi.bundle"; version:Version="1.5.0.20140605-2032"; singleton:="false"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.recommenders.models 4 0 2014-09-14 13:25:11.672
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.recommenders.models [931]
+  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.eclipse.recommenders.models [osgi.identity; osgi.identity="org.eclipse.recommenders.models"; type="osgi.bundle"; version:Version="2.1.0.v20140526-1706"] because it is exposed to package 'org.eclipse.aether.impl' from resources org.eclipse.aether.impl [osgi.identity; osgi.identity="org.eclipse.aether.impl"; type="osgi.bundle"; version:Version="1.0.0.v20140518"] and org.eclipse.m2e.maven.runtime [osgi.identity; osgi.identity="org.eclipse.m2e.maven.runtime"; type="osgi.bundle"; version:Version="1.5.0.20140605-2032"; singleton:="false"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.recommenders.models [osgi.identity; osgi.identity="org.eclipse.recommenders.models"; type="osgi.bundle"; version:Version="2.1.0.v20140526-1706"]
+    import: (&(osgi.wiring.package=org.eclipse.aether.impl)(&(version>=1.0.0)(!(version>=1.1.0))))
+     |
+    export: osgi.wiring.package: org.eclipse.aether.impl
+  org.eclipse.aether.impl [osgi.identity; osgi.identity="org.eclipse.aether.impl"; type="osgi.bundle"; version:Version="1.0.0.v20140518"]
+
+Chain 2:
+  org.eclipse.recommenders.models [osgi.identity; osgi.identity="org.eclipse.recommenders.models"; type="osgi.bundle"; version:Version="2.1.0.v20140526-1706"]
+    import: (&(osgi.wiring.package=org.apache.maven.repository.internal)(&(version>=3.1.0)(!(version>=3.2.0))))
+     |
+    export: osgi.wiring.package=org.apache.maven.repository.internal; uses:=org.eclipse.aether.impl
+  org.eclipse.aether.maven [osgi.identity; osgi.identity="org.eclipse.aether.maven"; type="osgi.bundle"; version:Version="3.1.0.v20140524-1439"]
+    import: (&(osgi.wiring.package=org.eclipse.aether.impl)(&(version>=0.9.0)(!(version>=1.1.0))))
+     |
+    export: osgi.wiring.package: org.eclipse.aether.impl
+  org.eclipse.m2e.maven.runtime [osgi.identity; osgi.identity="org.eclipse.m2e.maven.runtime"; type="osgi.bundle"; version:Version="1.5.0.20140605-2032"; singleton:="false"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.core.resources 2 10035 2014-09-14 13:25:30.389
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-09-14 13:27:40.874
+!MESSAGE Can't handle %s as parent of completion location.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-09-14 13:41:25.811
+!MESSAGE Can't handle %s as parent of completion location.
+!SESSION 2014-09-14 16:31:27.079 -----------------------------------------------
+eclipse.buildId=4.4.0.I20140606-1215
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ja_JP
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.recommenders.apidocs.rcp 4 0 2014-09-14 16:31:39.305
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.recommenders.apidocs.rcp [923]
+  Unresolved requirement: Require-Bundle: org.eclipse.recommenders.models; bundle-version="2.0.0"
+    -> Bundle-SymbolicName: org.eclipse.recommenders.models; bundle-version="2.1.0.v20140526-1706"
+       org.eclipse.recommenders.models [931]
+         No resolution report for the bundle.  Unresolved requirement: Require-Bundle: org.eclipse.recommenders.apidocs; bundle-version="2.0.0"
+    -> Bundle-SymbolicName: org.eclipse.recommenders.apidocs; bundle-version="2.1.0.v20140526-1706"
+       org.eclipse.recommenders.apidocs [922]
+         Unresolved requirement: Require-Bundle: org.eclipse.recommenders.models
+           -> Bundle-SymbolicName: org.eclipse.recommenders.models; bundle-version="2.1.0.v20140526-1706"
+  Unresolved requirement: Require-Bundle: org.eclipse.recommenders.calls; bundle-version="2.0.0"
+    -> Bundle-SymbolicName: org.eclipse.recommenders.calls; bundle-version="2.1.0.v20140527-1146"
+       org.eclipse.recommenders.calls [924]
+         Unresolved requirement: Require-Bundle: org.eclipse.recommenders.models; bundle-version="2.0.0"
+           -> Bundle-SymbolicName: org.eclipse.recommenders.models; bundle-version="2.1.0.v20140526-1706"
+  Unresolved requirement: Require-Bundle: org.eclipse.recommenders.models.rcp; bundle-version="2.0.0"
+    -> Bundle-SymbolicName: org.eclipse.recommenders.models.rcp; bundle-version="2.1.0.v20140602-1202"; singleton:="true"
+       org.eclipse.recommenders.models.rcp [932]
+         Unresolved requirement: Require-Bundle: org.eclipse.recommenders.models; bundle-version="2.0.0"
+           -> Bundle-SymbolicName: org.eclipse.recommenders.models; bundle-version="2.1.0.v20140526-1706"
+  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.eclipse.recommenders.models [osgi.identity; osgi.identity="org.eclipse.recommenders.models"; type="osgi.bundle"; version:Version="2.1.0.v20140526-1706"] because it is exposed to package 'org.eclipse.aether.impl' from resources org.eclipse.aether.impl [osgi.identity; osgi.identity="org.eclipse.aether.impl"; type="osgi.bundle"; version:Version="1.0.0.v20140518"] and org.eclipse.m2e.maven.runtime [osgi.identity; osgi.identity="org.eclipse.m2e.maven.runtime"; type="osgi.bundle"; version:Version="1.5.0.20140605-2032"; singleton:="false"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.recommenders.models [osgi.identity; osgi.identity="org.eclipse.recommenders.models"; type="osgi.bundle"; version:Version="2.1.0.v20140526-1706"]
+    import: (&(osgi.wiring.package=org.eclipse.aether.impl)(&(version>=1.0.0)(!(version>=1.1.0))))
+     |
+    export: osgi.wiring.package: org.eclipse.aether.impl
+  org.eclipse.aether.impl [osgi.identity; osgi.identity="org.eclipse.aether.impl"; type="osgi.bundle"; version:Version="1.0.0.v20140518"]
+
+Chain 2:
+  org.eclipse.recommenders.models [osgi.identity; osgi.identity="org.eclipse.recommenders.models"; type="osgi.bundle"; version:Version="2.1.0.v20140526-1706"]
+    import: (&(osgi.wiring.package=org.apache.maven.repository.internal)(&(version>=3.1.0)(!(version>=3.2.0))))
+     |
+    export: osgi.wiring.package=org.apache.maven.repository.internal; uses:=org.eclipse.aether.impl
+  org.eclipse.aether.maven [osgi.identity; osgi.identity="org.eclipse.aether.maven"; type="osgi.bundle"; version:Version="3.1.0.v20140524-1439"]
+    import: (&(osgi.wiring.package=org.eclipse.aether.impl)(&(version>=0.9.0)(!(version>=1.1.0))))
+     |
+    export: osgi.wiring.package: org.eclipse.aether.impl
+  org.eclipse.m2e.maven.runtime [osgi.identity; osgi.identity="org.eclipse.m2e.maven.runtime"; type="osgi.bundle"; version:Version="1.5.0.20140605-2032"; singleton:="false"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.recommenders.models 4 0 2014-09-14 16:31:39.718
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.recommenders.models [931]
+  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.eclipse.recommenders.models [osgi.identity; osgi.identity="org.eclipse.recommenders.models"; type="osgi.bundle"; version:Version="2.1.0.v20140526-1706"] because it is exposed to package 'org.eclipse.aether.impl' from resources org.eclipse.aether.impl [osgi.identity; osgi.identity="org.eclipse.aether.impl"; type="osgi.bundle"; version:Version="1.0.0.v20140518"] and org.eclipse.m2e.maven.runtime [osgi.identity; osgi.identity="org.eclipse.m2e.maven.runtime"; type="osgi.bundle"; version:Version="1.5.0.20140605-2032"; singleton:="false"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.recommenders.models [osgi.identity; osgi.identity="org.eclipse.recommenders.models"; type="osgi.bundle"; version:Version="2.1.0.v20140526-1706"]
+    import: (&(osgi.wiring.package=org.eclipse.aether.impl)(&(version>=1.0.0)(!(version>=1.1.0))))
+     |
+    export: osgi.wiring.package: org.eclipse.aether.impl
+  org.eclipse.aether.impl [osgi.identity; osgi.identity="org.eclipse.aether.impl"; type="osgi.bundle"; version:Version="1.0.0.v20140518"]
+
+Chain 2:
+  org.eclipse.recommenders.models [osgi.identity; osgi.identity="org.eclipse.recommenders.models"; type="osgi.bundle"; version:Version="2.1.0.v20140526-1706"]
+    import: (&(osgi.wiring.package=org.apache.maven.repository.internal)(&(version>=3.1.0)(!(version>=3.2.0))))
+     |
+    export: osgi.wiring.package=org.apache.maven.repository.internal; uses:=org.eclipse.aether.impl
+  org.eclipse.aether.maven [osgi.identity; osgi.identity="org.eclipse.aether.maven"; type="osgi.bundle"; version:Version="3.1.0.v20140524-1439"]
+    import: (&(osgi.wiring.package=org.eclipse.aether.impl)(&(version>=0.9.0)(!(version>=1.1.0))))
+     |
+    export: osgi.wiring.package: org.eclipse.aether.impl
+  org.eclipse.m2e.maven.runtime [osgi.identity; osgi.identity="org.eclipse.m2e.maven.runtime"; type="osgi.bundle"; version:Version="1.5.0.20140605-2032"; singleton:="false"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)

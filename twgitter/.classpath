@@ -9,5 +9,6 @@
 	<classpathentry kind="lib" path="D:/Shun/Programming/java/twgitter/twitter4j/twitter4j-media-support-4.0.2.jar"/>
 	<classpathentry kind="lib" path="D:/Shun/Programming/java/twgitter/twitter4j/twitter4j-stream-4.0.2.jar"/>
 	<classpathentry kind="lib" path="D:/Shun/Programming/java/twgitter/irclib/irclib-1.10/irclib.jar"/>
+	<classpathentry kind="lib" path="D:/Shun/Programming/java/twgitter/OAuthScribe/scribe-1.3.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

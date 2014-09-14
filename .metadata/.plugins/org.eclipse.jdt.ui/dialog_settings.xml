@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<item value="JavaSE-1.7" key="org.eclipse.jdt.ui.last.selected.execution.enviroment"/>
-	<item value="D:\Shun\Programming\java\twgitter\jerklib" key="org.eclipse.jdt.ui.lastextjar"/>
+	<item value="D:\Shun\Programming\java\twgitter\OAuthScribe" key="org.eclipse.jdt.ui.lastextjar"/>
 	<item value="D:\Shun\Programming\java\twgitter\IRC" key="org.eclipse.jdt.ui.last.external.project"/>
 	<section name="RefactoringWizard.preview">
 		<item value="600" key="width"/>
@@ -33,6 +33,8 @@
 		<item value="true" key="org.eclipse.jdt.ui.typecomment.deprecated"/>
 	</section>
 	<section name="quick_assist_proposal_size">
+		<item value="357" key="size.y"/>
+		<item value="355" key="size.x"/>
 	</section>
 	<section name="BuildPathsPropertyPage">
 		<item value="2" key="pageIndex"/>
