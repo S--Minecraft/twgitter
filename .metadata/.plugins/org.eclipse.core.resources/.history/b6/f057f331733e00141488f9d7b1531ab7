@@ -1,0 +1,21 @@
+package twgitter.slack;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Channel {
+	String id;
+	String name;
+	String is_channel;
+	String created;
+	String creator;
+	boolean is_archived;
+	boolean is_general;
+	List<String> members = new ArrayList<String>();
+	TopicPurpose topic;
+	TopicPurpose purpose;
+	boolean is_member;
+	String last_read;
+	Lastest lastest;
+	int unread_count;
+}

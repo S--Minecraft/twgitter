@@ -1,0 +1,9 @@
+package twgitter.slack;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ChannelFirst {
+	boolean ok;
+	List<Channel> channels = new ArrayList<>();
+}

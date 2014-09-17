@@ -2,22 +2,24 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="name" key="selection"/>
+		<item value="host" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="name"/>
-			<item value="UTF"/>
-			<item value="&quot;[IRC]&quot; + "/>
-			<item value="String[]"/>
-			<item value="String"/>
-			<item value="return UserCount"/>
-			<item value="return OneToOne"/>
-			<item value="return Topic"/>
+			<item value="server"/>
+			<item value="main"/>
+			<item value="run"/>
+			<item value="start"/>
+			<item value="throw"/>
+			<item value="List"/>
+			<item value=".in"/>
+			<item value="in."/>
 		</list>
 		<list key="replacehistory">
+			<item value="host"/>
+			<item value="IRCConnect"/>
 			<item value=""/>
 			<item value="return userCount"/>
 			<item value="return oneToOne"/>
@@ -30,7 +32,7 @@
 		<item value="309" key="DIALOG_WIDTH"/>
 		<item value="1|Meiryo UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Meiryo UI" key="DIALOG_FONT_NAME"/>
 		<item value="381" key="DIALOG_HEIGHT"/>
-		<item value="142" key="DIALOG_X_ORIGIN"/>
-		<item value="272" key="DIALOG_Y_ORIGIN"/>
+		<item value="34" key="DIALOG_X_ORIGIN"/>
+		<item value="265" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

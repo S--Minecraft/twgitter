@@ -1,0 +1,18 @@
+package twgitter.croudia;
+
+import org.scribe.builder.ServiceBuilder;
+import org.scribe.oauth.OAuthService;
+
+import twgitter.OAuthScribe.api.CroudiaApi;
+
+
+public class GetOAuth {
+	public static void main(String[] args) throws Exception {
+		OAuthService service = new ServiceBuilder()
+									.provider(CroudiaApi.class)
+									.apiKey()
+									.apiSecret()
+									.callback()
+									.build();
+	}
+}

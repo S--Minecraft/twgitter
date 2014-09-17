@@ -21,6 +21,7 @@ public class Streaming extends Thread {
 
 	//public static void gitterStreaming(String roomName) throws Exception {
 	public void run() {
+		System.out.println("[Gitter]Starting up Gitter...");
 		// 引数からURIを生成
 		String streamRoomId = "";
 		try {
@@ -80,7 +81,7 @@ public class Streaming extends Thread {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println("[Misc]Successed to get HTTP");
+		System.out.println("[Gitter]Successed to get HTTP");
 
 		while(null != buffer)
 		{
@@ -116,12 +117,12 @@ public class Streaming extends Thread {
 
 					System.out.println(Out);
 				}else{*/
-					System.out.println("[Gitter][" + user.getDisplayName() + "(@" + user.getUsername()  + ")]" + chat.getText());
+					System.out.println("[Gitter][" + roomName + "][" + user.getDisplayName() + "(@" + user.getUsername()  + ")]" + chat.getText());
 				//}
 			}else if(bufferChar[0] == ' '){
 				//System.out.println("[Gitter]No new chats now.");
 			}else{
-				System.out.println("[Gitter]Undefind buffer case...");
+				System.out.println("[Gitter][" + roomName + "]Undefind buffer case...");
 			}
 		try {
 			buffer = reader.readLine();

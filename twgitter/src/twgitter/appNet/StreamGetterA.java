@@ -8,6 +8,7 @@ public class StreamGetterA extends Thread {
 	{
 		Date lastdate = new Date(0);
 		//System.out.println(lastdate);
+		System.out.println("[App.Net]Starting up App.net...");
 
 		for(;;)
 		{

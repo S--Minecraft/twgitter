@@ -1,0 +1,7 @@
+package twgitter.slack.config;
+
+public class Config {
+	public static String clientID = "2661652273.2674617354";
+	public static String clientSecret = "56b11b36a6cac9441fac5fbbf66d4142";
+	public static String token = "xoxp-2661652273-2663282232-2663409938-02398e";
+}

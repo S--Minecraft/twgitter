@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<runner version="1.0.0">
+<category name="カテゴリーなし">
+<launchConfiguration bookmark="false" name="[IRC]Connect"/>
+<launchConfiguration bookmark="false" name="[Croudia]GetOAuth"/>
+<launchConfiguration bookmark="false" name="[IRC]IRC"/>
+<launchConfiguration bookmark="false" name="[Croudia]StreamGetterC"/>
+<launchConfiguration bookmark="false" name="[All]Test"/>
+<launchConfiguration bookmark="false" name="[IRC]TestConnect"/>
+<launchConfiguration bookmark="false" name="[All]TestThread"/>
+<launchConfiguration bookmark="false" name="[Twitter]Tweet"/>
+<launchConfiguration bookmark="false" name="[Twitter]UserStream"/>
+<launchConfiguration bookmark="false" name="[AppNet]Streaming"/>
+<launchConfiguration bookmark="false" name="[Gitter]Streaming"/>
+</category>
+</runner>

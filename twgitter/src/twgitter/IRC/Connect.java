@@ -1,8 +1,6 @@
 package twgitter.IRC;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.Hashtable;
 
@@ -14,13 +12,14 @@ import org.schwering.irc.lib.IRCUser;
 import org.schwering.irc.lib.SSLDefaultTrustManager;
 import org.schwering.irc.lib.SSLIRCConnection;
 
+@SuppressWarnings("deprecation")
 public class Connect extends Thread{
-	private BufferedReader in;
 	private IRCConnection conn;
-	private String target;
-	
-	public static void main(String[] args) throws UnsupportedEncodingException {
-	    Hashtable ht = null;
+	private String channel;
+
+	public static void IRCConnect(String[] args,String chan) throws UnsupportedEncodingException {
+
+		Hashtable<?, ?> ht = null;
 	    try {
 	      ht = getHashtable(args);
 	    } catch (IllegalArgumentException exc) {
@@ -35,14 +34,14 @@ public class Connect extends Thread{
 	    String name = (String)ht.get("name");
 	    boolean ssl = ((Boolean)ht.get("ssl")).booleanValue();
 	    try {
-	      new IRC(host, port, pass, nick, user, name, ssl);
+	      new Connect(host, port, pass, nick, user, name, ssl, chan);
 	    } catch (IOException exc) {
 	      printHelp();
 	    }
 	  }
-    
-	private static Hashtable getHashtable(String[] args) {
-	    Hashtable ht = new Hashtable();
+
+	private static Hashtable<String, Object> getHashtable(String[] args) {
+	    Hashtable<String, Object> ht = new Hashtable<String, Object>();
 	    String serverPort = (String)getParam(args, "server");
 	    int colon = serverPort.indexOf(':');
 	    ht.put("host", serverPort.substring(0, colon));
@@ -54,11 +53,11 @@ public class Connect extends Thread{
 	    ht.put("ssl", getParam(args, "ssl", new Boolean(false)));
 	    return ht;
 	  }
-	
+
 	private static Object getParam(String[] args, Object key) {
 	    return getParam(args, key, null);
 	  }
-	
+
 	private static Object getParam(String[] args, Object key, Object def) {
 	    for (int i = 0; i < args.length; i++) {
 	      if (args[i].equalsIgnoreCase("-"+ key)) {
@@ -78,29 +77,28 @@ public class Connect extends Thread{
 	    else
 	      throw new IllegalArgumentException("No value for "+ key +" found.");
 	  }
-	
+
+
 	private static void print(Object o) throws UnsupportedEncodingException {
-	    System.out.println("[IRC]" + toUTF8(o.toString()));
+	    System.out.println("[IRC]" + o);
 	  }
-	
+
+
 	private static void printHelp() throws UnsupportedEncodingException {
 	    print("Error with connecting...");
 	  }
-	
-	private static boolean startsWith(String s1, String s2) {
-	    return (s1.length() >= s2.length()) ?
-	        s1.substring(0, s2.length()).equalsIgnoreCase(s2) : false;
-	  }
-	
-	public Connect(String host, int port, String pass, String nick, String user,
-		      String name, boolean ssl) throws IOException {
-		    in = new BufferedReader(new InputStreamReader(System.in));
-		    if (!ssl) {
-		      conn = new IRCConnection(host, new int[] { port }, pass, nick, user,
-		          name);
+
+
+	public Connect(String host, int port, String pass, String nick, String user,String name, boolean ssl, String chan) throws IOException {
+		    channel = chan;
+
+		    //print(channel);
+		    //print(chan);
+
+			if (!ssl) {
+		      conn = new IRCConnection(host, new int[] { port }, pass, nick, user, name);
 		    } else {
-		      conn = new SSLIRCConnection(host, new int[] { port }, pass, nick, user,
-		          name);
+		      conn = new SSLIRCConnection(host, new int[] { port }, pass, nick, user, name);
 		      ((SSLIRCConnection)conn).addTrustManager(new SSLDefaultTrustManager());
 		    }
 		    conn.addIRCEventListener(new Listener());
@@ -110,50 +108,69 @@ public class Connect extends Thread{
 		    conn.connect();
 		    setDaemon(true);
 		    start();
+		    print("Starting up IRC...");
 		  }
-	
+
+	public Connect(String host,int port, String password,String Nickname,String UserName,String RealName,String chan) throws IOException{
+		new Connect(host,port,password,Nickname,UserName,RealName,false,chan);
+	}
+
+	public Connect(String host,int port, String Nickname,String UserName,String RealName,boolean Ssl,String chan) throws IOException{
+		new Connect(host,port,null,Nickname,UserName,RealName,Ssl,chan);
+	}
+
+	public Connect(String host,int port, String Nickname,String UserName,String RealName,String chan) throws IOException{
+		new Connect(host,port,null,Nickname,UserName,RealName,false,chan);
+	}
+
+	public Connect(String host,int port, String Nickname,boolean Ssl,String chan) throws IOException{
+		new Connect(host,port,null,Nickname,null,null,Ssl,chan);
+	}
+
+	public Connect(String host,int port, String Nickname,String chan) throws IOException{
+		new Connect(host,port,null,Nickname,null,null,false,chan);
+	}
+
 	public void run() {
-	    while (true) {
-	      try {
-	        shipInput();
-	      } catch (Exception exc) {
-	        exc.printStackTrace();
-	      }
-	    }
-	  }
-	
-	public void shipInput() throws Exception {
-	    String input = in.readLine();
-	    
-	    
-	    
-	    if (input == null || input.length() == 0)
-	      return;
-
-	    if (input.charAt(0) == '/') {
-	      if (startsWith(input, "/TARGET")) {
-	        target = input.substring(8);
-	        return;
-	      } else if (startsWith(input, "/JOIN")) {
-	        target = input.substring(6);
-	      }
-	      input = input.substring(1);
-	      print("Exec: "+ input);
-	      conn.send(input);
-	    } else {
-	      conn.doPrivmsg(target, input);
-	      print(target +"> "+ input);
-	    }
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		/*
+		try {
+			print(channel);
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		*/
+		if(!channel.equals(null))
+		{
+			conn.doJoin(channel);
+		}
+		/*
+		try {
+			doPrivmsgUTF8(conn,channel,"test");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		*/
 	  }
 
-	  //-----------------------------------------------------------------
-	  public static String toUTF8(String text) throws UnsupportedEncodingException{
-	  	String newText;
+	public void doPrivmsgUTF8(IRCConnection con,String chan,String text) throws UnsupportedEncodingException
+	{
+		con.doPrivmsg(chan,UTF8Encode(text));
+	}
 
-	  	newText = new String(text.getBytes("UTF8"), "UTF8");
+	public String UTF8Decode(String text) throws UnsupportedEncodingException
+	{
+		return new String(text.getBytes("ISO_8859_1"), "UTF8");
+	}
 
-	  	return newText;
-	  }
+	public String UTF8Encode(String text) throws UnsupportedEncodingException
+	{
+		return new String(text.getBytes("UTF8"), "ISO_8859_1");
+	}
 
 	  /**
 	   * Treats IRC events. The most of them are just printed.
@@ -162,140 +179,141 @@ public class Connect extends Thread{
 
 	    public void onRegistered() {
 	      try {
-			print("Connected");
+			print("接続しました");
 		} catch (UnsupportedEncodingException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 	    }
 
 	    public void onDisconnected() {
 	      try {
-			print("Disconnected");
+			print("接続を切りました");
 		} catch (UnsupportedEncodingException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 	    }
 
 	    public void onError(String msg) {
 	      try {
-			print("Error: "+ msg);
+			print("エラー: "+ msg);
 		} catch (UnsupportedEncodingException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 	    }
 
 	    public void onError(int num, String msg) {
 	      try {
-			print("Error #"+ num +": "+ msg);
+			print("エラー #"+ num +": "+ msg);
 		} catch (UnsupportedEncodingException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 	    }
 
 	    public void onInvite(String chan, IRCUser u, String nickPass) {
 	      try {
-			print(chan +"> "+ u.getNick() +" invites "+ nickPass);
+			print("[" + chan +"]["+ u.getNick() +"][Invite]" + u.getNick() + "さんが"+ nickPass + "さんを招待しました");
 		} catch (UnsupportedEncodingException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 	    }
 
 	    public void onJoin(String chan, IRCUser u) {
 	      try {
-			print(chan +"> "+ u.getNick() +" joins");
+			print("[" + chan + "][" + u.getNick() +"][Join]" + u.getNick() + "さんが入ってきました");
 		} catch (UnsupportedEncodingException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 	    }
 
 	    public void onKick(String chan, IRCUser u, String nickPass, String msg) {
 	      try {
-			print(chan +"> "+ u.getNick() +" kicks "+ nickPass);
+			print("[" + chan + "]["+ u.getNick() +"][Kick]"+ u.getNick() + "さんが" + nickPass + "さんをキックしました");
 		} catch (UnsupportedEncodingException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 	    }
 
 	    public void onMode(IRCUser u, String nickPass, String mode) {
 	      try {
-			print("Mode: "+ u.getNick() +" sets modes "+ mode +" "+
-			      nickPass);
-		} catch (UnsupportedEncodingException e) {
-			// TODO 自動生成された catch ブロック
+			if(u.getNick().equals(nickPass))
+			  {
+				print("[AllChan][" + u.getNick() +"][Mode]" + u.getNick() + "さんが自分のモードを" + mode +"に変更しました");
+			  }else{
+				  print("[AllChan][" + u.getNick() +"][Mode]" + u.getNick() + "さんが" + nickPass + "さんのモードを" + mode +"に変更しました");
+			  }
+		  } catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
-		}
+		  }
 	    }
 
 	    public void onMode(IRCUser u, String chan, IRCModeParser mp) throws UnsupportedEncodingException {
-	      print(chan +"> "+ u.getNick() +" sets mode: "+ mp.getLine());
+	      print("[" + chan +"]["+ u.getNick() +"][Mode]" + u.getNick() + "さんがチャンネルのモードを" + mp.getLine() + "に変更しました");
 	    }
 
 	    public void onNick(IRCUser u, String nickNew) {
 	      try {
-			print("Nick: "+ u.getNick() +" is now known as "+ nickNew);
+			print("[AllChan][" + u.getNick() +"][ChangeNick]"+ u.getNick() + "さんは" + nickNew + "にニックネームを変更しました");
 		} catch (UnsupportedEncodingException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 	    }
 
 	    public void onNotice(String target, IRCUser u, String msg) {
-	      try {
-			print(target +"> "+ u.getNick() +" (notice): "+ msg);
+
+	      String DecodeEncodeStr = "";
+		try {
+		  DecodeEncodeStr = UTF8Decode(msg);
+		  print("[" + target +"]["+ u.getNick() +"][Notice]"+ DecodeEncodeStr);
 		} catch (UnsupportedEncodingException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
-		}
+			}
 	    }
 
 	    public void onPart(String chan, IRCUser u, String msg) {
 	      try {
-			print(chan +"> "+ u.getNick() +" parts");
+			print("[" + chan + "]["+ u.getNick() +"][Part]" + u.getNick() + "さんが" + chan + "から離れました");
 		} catch (UnsupportedEncodingException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 	    }
 
 	    public void onPrivmsg(String chan, IRCUser u, String msg) {
-	      try {
-			print(chan +"> "+ u.getNick() +": "+ msg);
+	      String DecodeEncodeStr = "";
+		try {
+		  if(chan.equals("#parallelnote")|chan.equals("#S__twgitter"))
+		  {
+			  DecodeEncodeStr = UTF8Decode(msg);
+		  }else{
+			  DecodeEncodeStr = msg;
+		  }
+		  print("[" + chan +"]["+ u.getNick() +"]"+ DecodeEncodeStr);
 		} catch (UnsupportedEncodingException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 	    }
 
 	    public void onQuit(IRCUser u, String msg) {
 	      try {
-			print("Quit: "+ u.getNick());
+			print("[AllChan][" + u.getNick() + "][Quit]" + u.getNick() + "がIRCから離れました");
 		} catch (UnsupportedEncodingException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 	    }
 
 	    public void onReply(int num, String value, String msg) {
-	      try {
+	    	/*
+	    try {
 			print("Reply #"+ num +": "+ value +" "+ msg);
 		} catch (UnsupportedEncodingException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
+		*/
 	    }
 
 	    public void onTopic(String chan, IRCUser u, String topic) {
 	      try {
-			print(chan +"> "+ u.getNick() +" changes topic into: "+ topic);
+			print("[" + chan +"]["+ u.getNick() +"][ChangeTopic]トピックを次に変更しました: "+ topic);
 		} catch (UnsupportedEncodingException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 	    }

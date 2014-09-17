@@ -3,8 +3,9 @@ package twgitter.IRC;
 import java.io.UnsupportedEncodingException;
 
 
+
 public class GetMessages {
-	public static void getMessages(String server,String password,String Nickname,String UserName,String RealName,boolean Ssl) throws UnsupportedEncodingException{
+	public static void getMessages(String server,String password,String Nickname,String UserName,String RealName,boolean Ssl,String chan) throws UnsupportedEncodingException{
 		int ssl;
 		if(Ssl)
 		{
@@ -41,14 +42,14 @@ public class GetMessages {
 			args[9] = RealName;
 		}
 
-		IRC.main(args);
+		Connect.IRCConnect(args,chan);
 	}
 
-	public static void getMessages(String server,String password,String Nickname,String UserName,String RealName) throws UnsupportedEncodingException{
-		getMessages(server,password,Nickname,UserName,RealName,false);
+	public static void getMessages(String server,String password,String Nickname,String UserName,String RealName,String chan) throws UnsupportedEncodingException{
+		getMessages(server,password,Nickname,UserName,RealName,false,chan);
 	}
 
-	public static void getMessages(String server,String Nickname,String UserName,String RealName,boolean Ssl) throws UnsupportedEncodingException{
+	public static void getMessages(String server,String Nickname,String UserName,String RealName,boolean Ssl,String chan) throws UnsupportedEncodingException{
 		int ssl;
 		if(Ssl)
 		{
@@ -81,14 +82,14 @@ public class GetMessages {
 			args[7] = RealName;
 		}
 
-		IRC.main(args);
+		Connect.IRCConnect(args,chan);
 	}
 
-	public static void getMessages(String server,String Nickname,String UserName,String RealName) throws UnsupportedEncodingException{
-		getMessages(server,Nickname,UserName,RealName,false);
+	public static void getMessages(String server,String Nickname,String UserName,String RealName,String chan) throws UnsupportedEncodingException{
+		getMessages(server,Nickname,UserName,RealName,false,chan);
 	}
 
-	public static void getMessages(String server,String Nickname,boolean Ssl) throws UnsupportedEncodingException{
+	public static void getMessages(String server,String Nickname,boolean Ssl,String chan) throws UnsupportedEncodingException{
 		int ssl;
 		if(Ssl)
 		{
@@ -113,10 +114,10 @@ public class GetMessages {
 			args[3] = Nickname;
 		}
 
-		IRC.main(args);
+		Connect.IRCConnect(args,chan);
 	}
 
-	public static void getMessages(String server,String Nickname) throws UnsupportedEncodingException{
-		getMessages(server,Nickname,false);
+	public static void getMessages(String server,String Nickname,String chan) throws UnsupportedEncodingException{
+		getMessages(server,Nickname,false,chan);
 	}
 }

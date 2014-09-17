@@ -9,6 +9,7 @@ public class UserStream extends Thread{
 	//public static void twitterUserStream() throws TwitterException
 	public void run()
 	{
+		System.out.println("[Twitter]Starting up Twitter...");
 		Config.doConfig();
 		Configuration cfg=Config.cb.build();
 

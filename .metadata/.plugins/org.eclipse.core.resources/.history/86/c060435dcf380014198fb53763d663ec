@@ -1,8 +1,0 @@
-package twgitter.appNet;
-
-import twgitter.gitter.Meta;
-
-public class AppNetStream {
-	Data data;
-	Meta meta;
-}

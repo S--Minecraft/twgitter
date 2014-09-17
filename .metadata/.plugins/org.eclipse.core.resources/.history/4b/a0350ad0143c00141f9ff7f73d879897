@@ -1,0 +1,30 @@
+package twgitter.croudia;
+
+import java.util.List;
+
+import twgitter.croudia.config.Config;
+import twgitter.get.GetHTTP;
+
+import com.google.gson.Gson;
+
+public class TokenRefresh {
+	public static void refreshToken throws Exception {
+		String[][] header = {{"grant_type","refresh_token"},{"client_id",Config.ConsumerKey},{"client_secret",Config.ConsumerSecret},{"refresh_token",Config.refresh_token}};
+		String URI = "";
+		String CharCode = "UTF-8";
+		List<String> json = GetHTTP.AccessHTTPString(URI, header, CharCode);
+
+		Gson gson = new Gson();
+
+		Tokens tokens = gson.fromJson(json.get(0).toString(),Tokens.class);
+
+		System.out.println("AccessToken : " + tokens.getAccess_token());
+		System.out.println("TokenType : " + tokens.getToken_type());
+		System.out.println("ExpiresIn : " + tokens.getExpires_in());
+		System.out.println("RefreshToken : " + tokens.getRefresh_token());
+
+		Config.setAccess_token(tokens.getAccess_token());
+		Config.setExpires_in(tokens.getExpires_in());
+		Config.setRefresh_token(tokens.getRefresh_token());
+	}
+}

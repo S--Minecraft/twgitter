@@ -1,0 +1,34 @@
+import twgitter.IRC.GetMessages;
+import twgitter.get.Command;
+import twgitter.gitter.config.Config;
+
+public class Test {
+	public static void main(String[] args) throws Exception {
+		/*
+		StreamGetter appNet = new StreamGetter();
+		appNet.run();
+		*/
+		/*
+		Streaming gitter = new Streaming("S--Minecraft/twgitter");
+		gitter.run();
+		*/
+		/*
+		UserStream twitter = new UserStream();
+		twitter.run();
+		*/
+
+		//GetMessages.getMessages("irc.friend-chat.jp:6667","S__twgitter","#parallelnote");
+
+		String command = "curl -i -k -F \"token=" + Config.token + "\" \"https://slack.com/api/channels.list\"";
+		String[] jsons = Command.execCommand(command);
+
+		//デバッグ
+
+		for(int i=0;i<jsons.length;i++)
+		{
+			System.out.println(jsons[i]);
+		}
+
+
+	}
+}

@@ -16,11 +16,6 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>src/twgitter/IRC/config/Config.java</name>
-			<type>1</type>
-			<locationURI>PARENT-2-ECLIPSE_HOME/Programming/java/twgitter/src/twgitter/IRC/config/Config.java</locationURI>
-		</link>
-		<link>
 			<name>src/twgitter/appNet/config/Config.java</name>
 			<type>1</type>
 			<locationURI>PARENT-2-ECLIPSE_HOME/Programming/java/twgitter/src/twgitter/appNet/config/Config.java</locationURI>
@@ -34,6 +29,11 @@
 			<name>src/twgitter/gitter/config/Config.java</name>
 			<type>1</type>
 			<locationURI>PARENT-2-ECLIPSE_HOME/Programming/java/twgitter/src/twgitter/gitter/config/Config.java</locationURI>
+		</link>
+		<link>
+			<name>src/twgitter/slack/config/Config.java</name>
+			<type>1</type>
+			<locationURI>PARENT-2-ECLIPSE_HOME/Programming/java/twgitter/src/twgitter/slack/config/Config.java</locationURI>
 		</link>
 		<link>
 			<name>src/twgitter/twitter/config/Config.java</name>

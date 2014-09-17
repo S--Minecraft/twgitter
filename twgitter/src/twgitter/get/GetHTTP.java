@@ -6,6 +6,7 @@ import java.net.URI;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class GetHTTP {
 	/**
@@ -27,19 +28,20 @@ public class GetHTTP {
 		{
 			for(int i=0;i<Header.length;i++)
 			{
-				connection.setRequestProperty(Header[i][0] ,Header[i][1]);
+					connection.setRequestProperty(Header[i][0] ,Header[i][1]);
 			}
 		}
 
         // ヘッダ情報を出力
-		/*
+
 		Map<String, List<String>> headers = connection.getHeaderFields();
 		for (Object key : headers.keySet()) {
 			System.out.println("[Misc]HTTP Headers{" + key + ": " + headers.get(key) + "}");
 		}
-		*/
+
 
 		// コンテンツを出力
+		/*
 		BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), CharCode));
 		String buffer = reader.readLine();
 		System.out.println("[Misc]Successed to get HTTP");
@@ -48,6 +50,7 @@ public class GetHTTP {
 			System.out.println("G:" + buffer);
 			buffer = reader.readLine();
 		}
+		*/
 	}
 
 	public static void AccessHTTP(String URI,String[][] Header) throws Exception{

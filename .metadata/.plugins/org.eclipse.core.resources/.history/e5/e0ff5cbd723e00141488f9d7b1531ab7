@@ -1,0 +1,7 @@
+package twgitter.slack;
+
+public class Topic {
+	String value;
+	String creator;
+	String last_set;
+}

@@ -1,0 +1,20 @@
+package twgitter.croudia.config;
+
+public class Config {
+	public static String ConsumerKey = "a22268f222dd11a7f32325f5234445f9a52efa9f62b63f5fb43133defd18fcdf";
+	public static String ConsumerSecret = "0e32069c074722e3e06df23fa701629bd32f1eff554b2c678630882ea5e1f87c";
+	public static String token = "2c14094ce1832462debb82d4693df4539549f0d2c6ad6a1ca2d5a95c81c07c22";
+
+	public static String access_token;
+	public static String token_type;
+	public static int expires_in;
+	public static String refresh_token;
+
+	public void setAccess_token(String token){access_token = token;}
+	public void setExpires_in(int time){expires_in = time;}
+	public void setRefresh_token(String token){refresh_token = token;}
+
+	//curl -k "https://api.croudia.com/oauth/authorize?response_type=code&client_id=a22268f222dd11a7f32325f5234445f9a52efa9f62b63f5fb43133defd18fcdf&state=twgitter"
+	//curl -k -F "grant_type=authorization_code" -F "client_id=a22268f222dd11a7f32325f5234445f9a52efa9f62b63f5fb43133defd18fcdf" -F "client_secret=0e32069c074722e3e06df23fa701629bd32f1eff554b2c678630882ea5e1f87c " -F "code=40070551dbb2e51a4e8f9c992777199cc827a6426dcb43752c9eef9b52f89246" https://api.croudia.com/oauth/token
+	//String[] jsonString = Command.execCommand("curl -k -F \"grant_type=authorization_code\" -F \"client_id=" + Config.ConsumerKey + "\" -F \"client_secret=" + Config.ConsumerSecret + "\" -F \"code=aa0213957409081293d28006779fb1b4d6ff5b81b65d241fffeb935f45181af6\" https://api.croudia.com/oauth/token");
+}
