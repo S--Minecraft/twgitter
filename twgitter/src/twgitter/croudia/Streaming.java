@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import twgitter.croudia.config.Config;
+import twgitter.TestThread;
 import twgitter.get.GetHTTP;
 
 import com.google.gson.Gson;
@@ -20,7 +20,7 @@ public class Streaming {
 
 	public static Date streaming(Date lastDate) throws Exception {
 		String URI = "https://api.croudia.com/statuses/home_timeline.json";
-		String[][] Header = { {"Host", "api.croudia.com"}, {"Authorization", "Bearer " + Config.access_token} };
+		String[][] Header = { {"Host", "api.croudia.com"}, {"Authorization", "Bearer " + TestThread.allTokens.getCroudiaAccess_token()} };
 		String CharCode = "UTF-8";
 		Gson gson = new Gson();
 		List<String> json = new ArrayList<>();

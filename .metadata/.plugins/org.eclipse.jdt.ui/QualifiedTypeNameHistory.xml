@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="get.Command"/>
-<fullyQualifiedTypeName name="gitter.config.Config"/>
-<fullyQualifiedTypeName name="twgitter.gitter.ChatString"/>
-<fullyQualifiedTypeName name="java.net.Authenticator"/>
-<fullyQualifiedTypeName name="java.net.PasswordAuthentication"/>
-<fullyQualifiedTypeName name="java.util.Collections"/>
-<fullyQualifiedTypeName name="twgitter.appNet.Streaming"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
 <fullyQualifiedTypeName name="java.net.Socket"/>
 <fullyQualifiedTypeName name="java.io.OutputStreamWriter"/>
@@ -31,7 +23,6 @@
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="com.google.gson.annotations.SerializedName"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Type"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="com.google.gson.reflect.TypeToken"/>
 <fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="java.util.Locale"/>
@@ -43,11 +34,9 @@
 <fullyQualifiedTypeName name="org.scribe.model.OAuthRequest"/>
 <fullyQualifiedTypeName name="org.scribe.model.Verb"/>
 <fullyQualifiedTypeName name="org.scribe.model.Response"/>
-<fullyQualifiedTypeName name="com.google.gson.Gson"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="java.rmi.registry.Registry"/>
 <fullyQualifiedTypeName name="twgitter.croudia.config.Config"/>
-<fullyQualifiedTypeName name="twgitter.get.GetHTTP"/>
 <fullyQualifiedTypeName name="twgitter.croudia.GetOAuth"/>
 <fullyQualifiedTypeName name="twgitter.get.Command"/>
 <fullyQualifiedTypeName name="org.schwering.irc.lib.IRCConnection"/>
@@ -58,6 +47,17 @@
 <fullyQualifiedTypeName name="twgitter.IRC.Connect"/>
 <fullyQualifiedTypeName name="java.io.UnsupportedEncodingException"/>
 <fullyQualifiedTypeName name="twgitter.slack.GetChannels"/>
-<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="twgitter.get.GetHTTP"/>
+<fullyQualifiedTypeName name="twgitter.slack.config.Config"/>
+<fullyQualifiedTypeName name="twgitter.slack.GetChannelHistory"/>
+<fullyQualifiedTypeName name="com.google.gson.Gson"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="twgitter.slack.GetUsers"/>
+<fullyQualifiedTypeName name="twgitter.slack.User"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.security.Timestamp"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.sql.Timestamp"/>
+<fullyQualifiedTypeName name="twgitter.slack.HistoryGetting"/>
+<fullyQualifiedTypeName name="twgitter.slack.HistoryGetter"/>
 </qualifiedTypeNameHistroy>

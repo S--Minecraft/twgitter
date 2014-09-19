@@ -1,0 +1,28 @@
+package twgitter.config;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+public class LoadProperties {
+	public static void main(String[] args)
+	{
+		System.out.println("ホスト名 = '"+name+"'");
+
+		String basepath = System.getProperty("user.dir");
+		String filename = basepath + "\\config\\tokens.cfg";  // プロパティファイルのファイル名
+
+
+		Properties cfg = new Properties();
+
+		try {
+			cfg.load(new FileInputStream(filename));
+		} catch (IOException e) {
+			System.err.println("Cannot open " + filename + ".");
+			e.printStackTrace();
+			System.exit(-1);  // プログラム終了
+		}
+		// 読み込み
+		System.out.println(cfg.getProperty("AppNet.token"));
+	}
+}

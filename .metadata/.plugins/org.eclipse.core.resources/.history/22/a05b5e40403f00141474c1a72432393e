@@ -1,0 +1,51 @@
+package twgitter.slack;
+
+import java.security.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+
+public class HistoryGetting {
+	public static void main(String[] args) throws Exception {
+
+
+		List<Message> messages = GetChannelHistory.jsonToMessage(GetChannelHistory.getChannelHistory("general"));
+		List<User> users = GetUsers.jsonToUser(GetUsers.getUsers());
+
+		for(int i=messages.size()-1;i>-1;i--)
+		{
+			Message thisM = messages.get(i);
+			String id = "";
+			String subtype = thisM.getSubtype();
+
+			if()
+			{
+				if(subtype!=null)
+				{
+					if(subtype.equals("message_changed"))
+					{
+						id = thisM.getMessage().getUser();
+					}
+					if(subtype.equals("file_share")||subtype.equals("channel_join"))
+					{
+						id = thisM.getUser();
+					}
+				}else{
+					id = thisM.getUser();
+				}
+
+				String name = GetUsers.userIdToName(id,users);
+
+				System.out.println("[Slack][" + name + "]" + thisM.getText());
+			}
+		}
+	}
+
+	public static Date timestampToDate(Timestamp time)
+	{
+		Date date = time.getTimestamp();
+		return date;
+	}
+}

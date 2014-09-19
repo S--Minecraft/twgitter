@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="host" key="selection"/>
+		<item value="" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="&#x09;"/>
 			<item value="server"/>
 			<item value="main"/>
 			<item value="run"/>
@@ -15,12 +16,11 @@
 			<item value="throw"/>
 			<item value="List"/>
 			<item value=".in"/>
-			<item value="in."/>
 		</list>
 		<list key="replacehistory">
+			<item value=""/>
 			<item value="host"/>
 			<item value="IRCConnect"/>
-			<item value=""/>
 			<item value="return userCount"/>
 			<item value="return oneToOne"/>
 			<item value="return topic"/>

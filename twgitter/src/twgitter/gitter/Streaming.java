@@ -7,7 +7,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLConnection;
 
-import twgitter.gitter.config.Config;
+import twgitter.TestThread;
 
 import com.google.gson.Gson;
 
@@ -32,7 +32,7 @@ public class Streaming extends Thread {
 			e.printStackTrace();
 		}
 		String URI = "https://stream.gitter.im/v1/rooms/" + streamRoomId + "/chatMessages";
-		String[][] Header = { {"Authorization", "Bearer " + Config.token}, {"Accept", "application/json"} };
+		String[][] Header = { {"Authorization", "Bearer " + TestThread.allTokens.getGitterToken()}, {"Accept", "application/json"} };
 		String CharCode = "UTF-8";
 		Gson gson = new Gson();
 

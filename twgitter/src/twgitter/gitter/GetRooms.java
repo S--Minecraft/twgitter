@@ -4,8 +4,8 @@ import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.List;
 
+import twgitter.TestThread;
 import twgitter.get.Command;
-import twgitter.gitter.config.Config;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -20,7 +20,7 @@ public class GetRooms {
 	public static String getRooms() throws Exception
 	{
 		//curl -i -H "Accept: application/json" -H "Authorization: Bearer f942da113703b8fb345a9277945098757265255e" "https://api.gitter.im/v1/rooms" -k
-		String command = "curl -i -H \"Accept: application/json\" -H \"Authorization: Bearer " + Config.token + "\" \"https://api.gitter.im/v1/rooms\" -k";
+		String command = "curl -i -H \"Accept: application/json\" -H \"Authorization: Bearer " + TestThread.allTokens.getGitterToken() + "\" \"https://api.gitter.im/v1/rooms\" -k";
 		String[] jsons = Command.execCommand(command);
 		String json = "";
 

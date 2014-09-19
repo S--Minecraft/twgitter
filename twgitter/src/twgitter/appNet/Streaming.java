@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import twgitter.appNet.config.Config;
+import twgitter.TestThread;
 import twgitter.get.GetHTTP;
 
 import com.google.gson.Gson;
@@ -17,7 +17,7 @@ public class Streaming {
 	public static Date streaming(Date lastDate) throws Exception {
 		// 引数からURIを生成
 		String URI = "https://api.app.net/posts/stream";
-		String[][] Header = { {"Authorization", "Bearer " + Config.token}, {"X-ADN-Pretty-JSON", "1"} };
+		String[][] Header = { {"Authorization", "Bearer " + TestThread.allTokens.getAppNetToken()}, {"X-ADN-Pretty-JSON", "1"} };
 		String CharCode = "UTF-8";
 		Gson gson = new Gson();
 		List<String> json = new ArrayList<>();

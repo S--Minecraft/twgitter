@@ -1,0 +1,11 @@
+package twgitter.slack;
+
+import java.util.List;
+
+public class UserFirst {
+	boolean ok;
+	List<User> members;
+
+	public boolean isOk() {return ok;}
+	public List<User> getMembers() {return members;}
+}

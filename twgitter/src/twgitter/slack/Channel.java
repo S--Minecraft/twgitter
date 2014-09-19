@@ -1,6 +1,5 @@
 package twgitter.slack;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Channel {
@@ -11,7 +10,7 @@ public class Channel {
 	String creator;
 	boolean is_archived;
 	boolean is_general;
-	List<String> members = new ArrayList<String>();
+	List<String> members;
 	TopicPurpose topic;
 	TopicPurpose purpose;
 	boolean is_member;

@@ -6,7 +6,6 @@ import java.net.URI;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class GetHTTP {
 	/**
@@ -33,12 +32,12 @@ public class GetHTTP {
 		}
 
         // ヘッダ情報を出力
-
+		/*
 		Map<String, List<String>> headers = connection.getHeaderFields();
 		for (Object key : headers.keySet()) {
 			System.out.println("[Misc]HTTP Headers{" + key + ": " + headers.get(key) + "}");
 		}
-
+		*/
 
 		// コンテンツを出力
 		/*

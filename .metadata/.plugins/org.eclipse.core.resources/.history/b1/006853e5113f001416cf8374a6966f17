@@ -1,0 +1,9 @@
+package twgitter.slack;
+
+public class UserFirst {
+	boolean ok;
+	User members;
+
+	public boolean isOk() {return ok;}
+	public User getMembers() {return members;}
+}

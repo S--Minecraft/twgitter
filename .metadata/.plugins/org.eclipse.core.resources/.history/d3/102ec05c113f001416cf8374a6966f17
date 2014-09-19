@@ -1,0 +1,30 @@
+package twgitter.slack;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import twgitter.get.GetHTTP;
+import twgitter.slack.config.Config;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+public class GetUsers {
+	public static String getUsers() throws Exception {
+		String URI = "https://slack.com/api/users.list?token=" + Config.token;
+		List<String> json = GetHTTP.AccessHTTPString(URI);
+
+		String jsonString = json.get(0);
+
+		return jsonString;
+	}
+
+	public static List<Message> jsonToMessage(String json) {
+		Gson gson = new Gson();
+		UserFirst userFirst = gson.fromJson(json.toString(),UserFirst.class);
+		List<User> users = UserFirst.getMembers();
+		return users;
+	}
+}

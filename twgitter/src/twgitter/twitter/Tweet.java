@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import twgitter.twitter.config.Config;
 import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
@@ -16,8 +15,8 @@ import twitter4j.conf.Configuration;
 public class Tweet {
 	public static void main(String[] args) throws IOException, TwitterException
 	{
-		Config.doConfig();
-		Configuration cfg=Config.cb.build();
+		GetConfig.doConfig();
+		Configuration cfg=GetConfig.cb.build();
 		Twitter twitter = new TwitterFactory(cfg).getInstance();
 		String tweet = "";
 		Status status = twitter.tweets().updateStatus(tweet);

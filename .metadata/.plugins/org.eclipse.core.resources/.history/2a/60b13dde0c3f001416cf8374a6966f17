@@ -1,0 +1,8 @@
+package twgitter.slack;
+
+import java.util.List;
+
+public class HistoryFirst {
+	boolean ok;
+	List<Message> messages;
+}

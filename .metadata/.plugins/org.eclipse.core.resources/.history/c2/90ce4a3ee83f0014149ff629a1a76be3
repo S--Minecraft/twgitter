@@ -1,0 +1,43 @@
+package twgitter.config;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+public class LoadProperties {
+	public static void main(String[] args)
+	{
+		String basepath = System.getProperty("java.io.tmpdir");
+		String filename = basepath + "\\twgitter\\config\\tokens.cfg";  // プロパティファイルのファイル名
+
+		Properties cfg = new Properties();
+
+		try {
+			cfg.load(new FileInputStream(filename));
+		} catch (IOException e) {
+			System.err.println("Cannot open " + filename + ".");
+			e.printStackTrace();
+			System.exit(-1);  // プログラム終了
+		}
+
+		// 読み込み
+		System.out.println(cfg.getProperty("AppNet.token"));
+		System.out.println(cfg.getProperty("Croudia.ConsumerKey"));
+		System.out.println(cfg.getProperty("Croudia.ConsumerSecret"));
+		System.out.println(cfg.getProperty("Croudia.token"));
+		System.out.println(cfg.getProperty("Croudia.access_token"));
+		System.out.println(cfg.getProperty("Croudia.token_type"));
+		System.out.println(cfg.getProperty("Croudia.expires_in"));
+		System.out.println(cfg.getProperty("Croudia.refresh_token"));
+		System.out.println(cfg.getProperty("Croudia.getDate"));
+		System.out.println(cfg.getProperty("Gitter.token"));
+		System.out.println(cfg.getProperty("Slack.clientID"));
+		System.out.println(cfg.getProperty("Slack.clientSecret"));
+		System.out.println(cfg.getProperty("Slack.token"));
+		System.out.println(cfg.getProperty("Twitter.ConsumerKey"));
+		System.out.println(cfg.getProperty("Twitter.ConsumerSecret"));
+		System.out.println(cfg.getProperty("Twitter.AccessToken"));
+		System.out.println(cfg.getProperty("Twitter.AccessTokenSecret"));
+		System.out.println(cfg.getProperty("Twitter.ConsumerKey"));
+	}
+}
