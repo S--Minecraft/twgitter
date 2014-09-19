@@ -1,0 +1,25 @@
+package twgitter.config;
+
+import java.util.List;
+
+public class GeneralConfig {
+	boolean ConnectTwitter;
+	boolean ConnectAppNet;
+	boolean ConnectCroudia;
+	boolean ConnectGitter;
+	boolean ConnectSlack;
+	boolean ConnectIRC;
+	List<String> GitterRooms;
+	List<String> SlackChannels;
+	List<String> IRCChannels;
+
+	public boolean isConnectTwitter() {return ConnectTwitter;}
+	public boolean isConnectAppNet() {return ConnectAppNet;}
+	public boolean isConnectCroudia() {return ConnectCroudia;}
+	public boolean isConnectGitter() {return ConnectGitter;}
+	public boolean isConnectSlack() {return ConnectSlack;}
+	public boolean isConnectIRC() {return ConnectIRC;}
+	public List<String> getGitterRooms() {return GitterRooms;}
+	public List<String> getSlackChannels() {return SlackChannels;}
+	public List<String> getIRCChannels() {return IRCChannels;}
+}

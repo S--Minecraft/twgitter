@@ -1,0 +1,14 @@
+package twgitter.config;
+
+public class GeneralConfig {
+	boolean ConnectTwitter;
+	boolean ConnectAppNet;
+	boolean ConnectCroudia;
+	boolean ConnectGitter;
+	boolean ConnectSlack;
+	boolean ConnectIRC;
+
+	List<String> GitterRooms;
+	List<String> SlackChannels;
+	List<String> IRCChannels;
+}

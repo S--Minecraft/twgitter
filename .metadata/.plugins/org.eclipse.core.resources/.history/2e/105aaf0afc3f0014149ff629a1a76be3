@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -128,10 +127,9 @@ public class LoadProperties {
 
 		general.setGitterRooms(stringListToList(cfg.getProperty("Gitter.Rooms")));
 		general.setSlackChannels(stringListToList(cfg.getProperty("Slack.Channels")));
+		general.setIRCChannels(stringListToList(cfg.getProperty("IRC.Channels")));
 
-		general.setIRCChannels(stringSpaceCommaListToList(cfg.getProperty("IRC.Channels")));
-
-		System.out.println("[Misc][Config]Successfully finished loading the general config.");
+		System.out.println("[Misc][Config]Successfully finished loading the token config.");
 
 		return general;
 	}
@@ -142,19 +140,5 @@ public class LoadProperties {
 		List<String> list = Arrays.asList(array);
 
 		return list;
-	}
-
-	public static List<String[]> stringSpaceCommaListToList(String space)
-	{
-		String[] array = space.split(" ");
-		List<String> list = Arrays.asList(array);
-		List<String[]> newList = new ArrayList<>();
-
-		for(int i=0;i<list.size();i++)
-		{
-			newList.add(list.get(i).split(","));
-		}
-
-		return newList;
 	}
 }

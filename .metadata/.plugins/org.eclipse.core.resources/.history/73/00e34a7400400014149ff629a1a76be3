@@ -252,7 +252,7 @@ public class Connect extends Thread{
 
 	    public void onNick(IRCUser u, String nickNew) {
 	      try {
-			print("[AllChan][" + u.getNick() +"][ChangeNick]"+ u.getNick() + "さんが" + nickNew + "にニックネームを変更しました");
+			print("[AllChan][" + u.getNick() +"][ChangeNick]"+ u.getNick() + "さんは" + nickNew + "にニックネームを変更しました");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -294,7 +294,7 @@ public class Connect extends Thread{
 
 	    public void onQuit(IRCUser u, String msg) {
 	      try {
-			print("[AllChan][" + u.getNick() + "][Quit]" + u.getNick() + "さんがIRCから離れました");
+			print("[AllChan][" + u.getNick() + "][Quit]" + u.getNick() + "がIRCから離れました");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -312,7 +312,7 @@ public class Connect extends Thread{
 
 	    public void onTopic(String chan, IRCUser u, String topic) {
 	      try {
-			print("[" + chan +"]["+ u.getNick() +"][ChangeTopic]トピックを\"" + topic + "\"変更しました");
+			print("[" + chan +"]["+ u.getNick() +"][ChangeTopic]トピックを次に変更しました: "+ topic);
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}

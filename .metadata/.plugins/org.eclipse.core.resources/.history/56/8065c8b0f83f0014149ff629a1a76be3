@@ -5,10 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 import java.util.Properties;
 
 public class LoadProperties {
@@ -99,62 +96,5 @@ public class LoadProperties {
 		cfg.store(new FileOutputStream(filename), filename);
 
 		System.out.println("[Misc][Config]Successfully finished writing to the token config.");
-	}
-
-	public static GeneralConfig loadGeneralConfig() throws ParseException
-	{
-		String basepath = System.getProperty("java.io.tmpdir");
-		String filename = basepath + "\\twgitter\\config\\general.cfg";  // プロパティファイルのファイル名
-
-		Properties cfg = new Properties();
-
-		try {
-			cfg.load(new FileInputStream(filename));
-		} catch (IOException e) {
-			System.err.println("Cannot open " + filename + ".");
-			e.printStackTrace();
-			System.exit(-1);  // プログラム終了
-		}
-
-		// 読み込み
-		GeneralConfig general = new GeneralConfig();
-
-		general.setConnectTwitter(Boolean.valueOf(cfg.getProperty("Connect.Twitter")));
-		general.setConnectAppNet(Boolean.valueOf(cfg.getProperty("Connect.AppNet")));
-		general.setConnectCroudia(Boolean.valueOf(cfg.getProperty("Connect.Croudia")));
-		general.setConnectGitter(Boolean.valueOf(cfg.getProperty("Connect.Gitter")));
-		general.setConnectSlack(Boolean.valueOf(cfg.getProperty("Connect.Slack")));
-		general.setConnectIRC(Boolean.valueOf(cfg.getProperty("Connect.IRC")));
-
-		general.setGitterRooms(stringListToList(cfg.getProperty("Gitter.Rooms")));
-		general.setSlackChannels(stringListToList(cfg.getProperty("Slack.Channels")));
-
-		general.setIRCChannels(stringSpaceCommaListToList(cfg.getProperty("IRC.Channels")));
-
-		System.out.println("[Misc][Config]Successfully finished loading the general config.");
-
-		return general;
-	}
-
-	public static List<String> stringListToList(String comma)
-	{
-		String[] array = comma.split(",");
-		List<String> list = Arrays.asList(array);
-
-		return list;
-	}
-
-	public static List<String[]> stringSpaceCommaListToList(String space)
-	{
-		String[] array = space.split(" ");
-		List<String> list = Arrays.asList(array);
-		List<String[]> newList = new ArrayList<>();
-
-		for(int i=0;i<list.size();i++)
-		{
-			newList.add(list.get(i).split(","));
-		}
-
-		return newList;
 	}
 }

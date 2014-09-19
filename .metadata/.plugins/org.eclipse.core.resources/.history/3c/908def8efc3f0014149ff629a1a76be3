@@ -77,8 +77,8 @@ public class TestThread extends Thread {
 
 		//Streaming gitter_twgitter = new Streaming("S--Minecraft/twgitter");
 		//Streaming gitter_PaLTree = new Streaming("PaLTree/notepad-lang-specification");
-		//HistoryGetter slackRandom = new HistoryGetter("random");
-		/*Connect IRC_parallelnote = *///new Connect("irc.friend-chat.jp",6667,"S_twgitter","#parallelnote");
+		HistoryGetter slackRandom = new HistoryGetter("random");
+		/*Connect IRC_parallelnote = */new Connect("irc.friend-chat.jp",6667,"S_twgitter","#parallelnote");
 		/*Connect IRC_twgitter = *///new Connect("irc.friend-chat.jp",6667,"S__twgitter","#S__twgitter");
 
 		if(generalCfg.isConnectTwitter())
@@ -95,20 +95,12 @@ public class TestThread extends Thread {
 		}
 		if(generalCfg.isConnectGitter())
 		{
-			for(int i=0;i<gitter.size();i++)
-			{
-				gitter.get(i).start();
-			}
-			//gitter_twgitter.start();
-			//gitter_PaLTree.start();
+			gitter_twgitter.start();
+			gitter_PaLTree.start();
 		}
 		if(generalCfg.isConnectSlack())
 		{
-			for(int i=0;i<slack.size();i++)
-			{
-				slack.get(i).start();
-			}
-			//slackRandom.start();
+			slackRandom.start();
 		}
-	}
+	  }
 }

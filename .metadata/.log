@@ -743,3 +743,21 @@ Chain 2:
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2014-09-19 20:42:21.388
 !MESSAGE Can't handle %s as parent of completion location.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2014-09-19 22:32:59.415
+!MESSAGE Unable to acquire PluginConverter service during generation for: D:\Shun\pleiades\eclipse\dropins\CheckStyle\eclipse\features\net.sf.eclipsecs_5.7.0.201402131929.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2014-09-19 22:32:59.866
+!MESSAGE Unable to acquire PluginConverter service during generation for: D:\Shun\pleiades\eclipse\dropins\CheckStyle\eclipse\features\net.sf.eclipsecs_5.7.0.201402131929.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2014-09-19 22:33:00.782
+!MESSAGE Unable to acquire PluginConverter service during generation for: D:\Shun\pleiades\eclipse\dropins\EclipseColorTheme\eclipse\features\com.github.eclipsecolortheme.feature_0.13.1.201405041302.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2014-09-19 22:33:00.991
+!MESSAGE Unable to acquire PluginConverter service during generation for: D:\Shun\pleiades\eclipse\dropins\JDEclipse\eclipse\features\jd.ide.eclipse.feature_0.1.5.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2014-09-19 22:33:01.675
+!MESSAGE Unable to acquire PluginConverter service during generation for: D:\Shun\pleiades\eclipse\dropins\EclipseColorTheme\eclipse\features\com.github.eclipsecolortheme.feature_0.13.1.201405041302.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2014-09-19 22:33:01.688
+!MESSAGE Unable to acquire PluginConverter service during generation for: D:\Shun\pleiades\eclipse\dropins\JDEclipse\eclipse\features\jd.ide.eclipse.feature_0.1.5.jar.

@@ -131,7 +131,7 @@ public class LoadProperties {
 
 		general.setIRCChannels(stringSpaceCommaListToList(cfg.getProperty("IRC.Channels")));
 
-		System.out.println("[Misc][Config]Successfully finished loading the general config.");
+		System.out.println("[Misc][Config]Successfully finished loading the token config.");
 
 		return general;
 	}
