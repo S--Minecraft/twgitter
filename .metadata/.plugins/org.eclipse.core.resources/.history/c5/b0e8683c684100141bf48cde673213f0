@@ -1,0 +1,17 @@
+package twgitter.general;
+
+import java.util.List;
+
+public class AllDescription {
+	//内容
+	String html;
+	String text;
+
+	//ハッシュタグ・リンク・メンション
+	List<AllHashtags> hashtags;
+	List<AllLinks> links;
+	List<AllMentions> mentions;
+
+	//
+	AllUserAnnotations annotations;
+}

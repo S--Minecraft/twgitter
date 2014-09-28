@@ -1,0 +1,5 @@
+package twgitter.gui;
+
+public class StreamGetService {
+
+}

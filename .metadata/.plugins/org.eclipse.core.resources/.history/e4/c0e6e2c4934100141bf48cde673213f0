@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root type="javafx.scene.layout.AnchorPane" xmlns:fx="http://javafx.com/fxml">
+    <children>
+        <Label layoutX="126" layoutY="90" minHeight="16" minWidth="69" fx:id="label" />
+        <Button layoutX="126" layoutY="150" text="Page1へ" onAction="#handleButtonAction" />
+    </children>
+</fx:root>

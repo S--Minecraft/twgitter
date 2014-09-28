@@ -1,5 +1,0 @@
-package twgitter.slack.config;
-
-public class Config {
-	public static String token = "xoxp-2661652273-2663282232-2663409938-02398e";
-}

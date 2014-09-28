@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="型 &apos;twgitter.gui.TopTab&apos; を &apos;Tabs&apos; に名前変更します&#x0D;&#x0A;- 元のプロジェクト: &apos;twgitter-gui&apos;&#x0D;&#x0A;- オリジナル要素: &apos;twgitter.gui.TopTab&apos;&#x0D;&#x0A;- 名前変更済み要素: &apos;twgitter.gui.Tabs&apos;&#x0D;&#x0A;- リファクタリングされた要素の参照を更新&#x0D;&#x0A;- コメントおよびストリング内のテキスト出現箇所の更新" description="型名 &apos;TopTab&apos; を変更します" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;twgitter.gui{TopTab.java[TopTab" matchStrategy="1" name="Tabs" qualified="false" references="true" similarDeclarations="false" stamp="1411220587878" textual="false" version="1.0"/>
+</session>

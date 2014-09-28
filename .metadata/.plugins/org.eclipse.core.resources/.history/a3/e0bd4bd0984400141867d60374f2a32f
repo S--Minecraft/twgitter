@@ -1,0 +1,17 @@
+package twgitter.gui;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
+
+import javafx.beans.property.StringProperty;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
+
+public class StreamGetService extends Service{
+	protected Task createTask()
+	{
+		return null;
+	}
+}

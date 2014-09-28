@@ -1,9 +1,0 @@
-package twgitter.croudia.config;
-
-public class Config {
-	public static String ConsumerKey = "a22268f222dd11a7f32325f5234445f9a52efa9f62b63f5fb43133defd18fcdf";
-	public static String ConsumerSecret = "0e32069c074722e3e06df23fa701629bd32f1eff554b2c678630882ea5e1f87c";
-	public static String token = "2c14094ce1832462debb82d4693df4539549f0d2c6ad6a1ca2d5a95c81c07c22";
-	public static String access_token = "58546eb740bf61f818e1e8fe1b136f45710d6a06ede4cfbf7426da89072b2d42";
-	public static String refresh_token = "9447bcaf27c2f97d7f6ab972a7885d8f8879b41d0a555a8d0ca1b652ccaa5082";
-}

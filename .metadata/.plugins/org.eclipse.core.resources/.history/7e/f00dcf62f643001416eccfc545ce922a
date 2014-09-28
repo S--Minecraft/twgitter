@@ -1,0 +1,45 @@
+package twgitter.gui;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+public class MessageBoxTest extends Application {
+	public static void main(String[] args) throws Exception{
+	    Application.launch(args);
+	  }
+	public static void main() throws Exception{
+		String[] args = {""};
+	    Application.launch(args);
+	  }
+
+	@Override
+	public void start(Stage stage) throws InterruptedException {
+		VBox vbox = new VBox();
+		Scene scene = new Scene(vbox);
+
+		Label userName = new Label("S");
+		VBox message = MessageBox.makeMessageBox(scene);
+		vbox.getChildren().addAll(userName,message);
+
+		vbox.minHeightProperty().bind(scene.heightProperty());
+		vbox.minWidthProperty().setValue(300);
+		message.minHeightProperty().bind(scene.heightProperty());
+		message.minWidthProperty().setValue(300);
+
+		// Stageの設定
+		stage.setScene(scene);
+		stage.setTitle("Twgitter - MessageBoxTesting...");
+		stage.setWidth(300);
+		stage.setHeight(170);
+		stage.show();
+	}
+
+	@Override
+	public void stop()
+	{
+
+	}
+}

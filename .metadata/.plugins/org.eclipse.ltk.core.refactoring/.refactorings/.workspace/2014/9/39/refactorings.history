@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="0 個の要素を &apos;twgitter-gui/src&apos; に移動&#x0D;&#x0A;- 宛先要素: &apos;twgitter-gui/src&apos;&#x0D;&#x0A;- リファクタリングされた要素の参照を更新" description="コンパイル単位を移動" destination="=twgitter-gui/src" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1411361770130" units="0" version="1.0"/>
+</session>

@@ -10,6 +10,7 @@ import twgitter.config.GeneralConfig;
 import twgitter.config.LoadProperties;
 import twgitter.croudia.GetOAuth;
 import twgitter.croudia.StreamGetterC;
+import twgitter.croudia.TokenRefresh;
 import twgitter.gitter.Streaming;
 import twgitter.slack.HistoryGetter;
 import twgitter.twitter.UserStream;
@@ -42,6 +43,8 @@ public class TestThread extends Thread {
 			if(tokenExpirationDate.before(new Date()))
 			{
 				GetOAuth.getOAuthCode(tokens);
+			}else{
+				TokenRefresh.refreshToken();
 			}
 		}
 
@@ -69,10 +72,13 @@ public class TestThread extends Thread {
 		}
 
 		//IRC
-		for(int i=0;i<generalCfg.getIRCChannels().size();i++)
+		if(generalCfg.isConnectIRC())
 		{
-			String[] channel = generalCfg.getIRCChannels().get(i);
-			new Connect(channel[0],Integer.parseInt(channel[1]),channel[2],channel[3]);
+			for(int i=0;i<generalCfg.getIRCChannels().size();i++)
+			{
+				String[] channel = generalCfg.getIRCChannels().get(i);
+				new Connect(channel[0],Integer.parseInt(channel[1]),channel[2],channel[3]);
+			}
 		}
 
 		//Streaming gitter_twgitter = new Streaming("S--Minecraft/twgitter");
@@ -110,5 +116,10 @@ public class TestThread extends Thread {
 			}
 			//slackRandom.start();
 		}
+	}
+
+	public static void main() throws Exception {
+		String[] args = {""};
+		main(args);
 	}
 }

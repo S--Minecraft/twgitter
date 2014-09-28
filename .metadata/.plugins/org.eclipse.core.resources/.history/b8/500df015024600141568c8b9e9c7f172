@@ -1,0 +1,40 @@
+package twgitter.gui;
+
+import javafx.application.Application;
+import javafx.geometry.Bounds;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class TestLabel extends Application {
+    @Override
+    public void start( Stage stage ) throws Exception {
+        double width = 100;
+        // create rectangle of specified width
+        Rectangle r = new Rectangle( 90, 200, width, 20 );
+        // get bounds of the rectangle
+        Bounds rb = r.getBoundsInLocal();
+        // create two identical texts for comparison
+        Text t1 = new Text(50, 170, "Some long text that would not fit.");
+        Text t2 = new Text(50, 190, "Some long text that would *** fit.");
+        // get bounds of the text
+        // this will return how much space the text actually takes
+        Bounds t2b = t2.getBoundsInLocal();
+        // find the scale down amount
+        double scalex = rb.getWidth()/t2b.getWidth();
+        // scale the text down to what the rect is
+        t2.setScaleX( scalex );
+
+        Pane root = new Pane();
+        root.getChildren().addAll( r, t1, t2 );
+
+        stage.setScene( new Scene( root, 800, 600 ) );
+        stage.show();
+    }
+
+    public static void main( String args[] ) {
+        launch(args);
+    }
+}

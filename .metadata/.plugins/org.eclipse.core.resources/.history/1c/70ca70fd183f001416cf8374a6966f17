@@ -1,8 +1,0 @@
-package twgitter.slack;
-
-public class Initial_comment {
-	String id;
-	int timestamp;
-	String user;
-	String comment;
-}

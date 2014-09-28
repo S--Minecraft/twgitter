@@ -1,6 +1,0 @@
-package twgitter.slack;
-
-public class ChannelFirst {
-	boolean ok;
-	List<Channel> channels = new ArrayList<>();
-}

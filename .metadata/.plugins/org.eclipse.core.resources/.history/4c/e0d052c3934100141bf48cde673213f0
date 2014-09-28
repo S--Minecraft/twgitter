@@ -1,0 +1,46 @@
+package twgitter.gui;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.layout.AnchorPane;
+
+public class Page1Controller extends AnchorPane implements Initializable {
+
+	/**
+	 * コンストラクタ
+	 * @param labelText
+	 */
+	public Page1Controller(String labelText) {
+		this.labelText = labelText;
+
+		loadFXML();
+	}
+
+	/**
+	 * FXMLのロード
+	 */
+	private void loadFXML() {
+
+		FXMLLoader fxmlLoader = new FXMLLoader(Sample.class.getResource("page1.fxml"));
+		fxmlLoader.setRoot(this);
+
+		// 自分自身をコントロールとして設定
+		fxmlLoader.setController(this);
+
+		try {
+			fxmlLoader.load();
+		} catch (IOException exception) {
+			throw new RuntimeException(exception);
+		}
+	}
+
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+		label.setText(labelText);
+	}
+
+}

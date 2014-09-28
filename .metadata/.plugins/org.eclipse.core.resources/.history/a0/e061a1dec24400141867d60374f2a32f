@@ -1,0 +1,11 @@
+package twgitter.gui;
+
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
+
+public class StreamGetService extends Service{
+	protected Task createTask()
+	{
+		return null;
+	}
+}

@@ -1,0 +1,121 @@
+package twgitter.gui;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+
+
+public class Main extends Application {
+	@Override
+	public void start(Stage primaryStage) {
+		/*
+		try {
+			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("First.fxml"));
+			Scene scene = new Scene(root,400,600);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setScene(scene);
+
+			/*
+			Tabs toptab = new Tabs();
+			String[] topTabName = {"All","Twitter","App.Net","Croudia","Gitter","IRC","Slack"};
+			toptab.init(primaryStage,topTabName,400,600);
+
+			Tabs secondtab = new Tabs();
+			String[] secondTabName = {"Messages","Favorites","Re","Reply","Mentions"};
+			secondtab.init(primaryStage,secondTabName,400,600);
+			*/
+
+
+		/*
+		primaryStage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		*/
+
+		@Override
+	    public void start(Stage stage) {
+	        stage.setTitle("Login Demo");
+
+	        AnchorPane root = new AnchorPane();
+	        Scene scene = new Scene(root);
+	        stage.setScene(scene);
+
+	        root.setMinSize(100.0, 138.0);
+	        root.setPrefSize(320.0, 138.0);
+
+	        // 垂直方向に部品を並べるコンテナ
+	        VBox vbox = new VBox();
+	        root.getChildren().add(vbox);
+
+	        AnchorPane.setTopAnchor(vbox, 14.0);
+	        AnchorPane.setBottomAnchor(vbox, 14.0);
+	        AnchorPane.setLeftAnchor(vbox, 14.0);
+	        AnchorPane.setRightAnchor(vbox, 14.0);
+
+	        // 上段に配置するコンテナ
+	        AnchorPane topPane = new AnchorPane();
+	        vbox.getChildren().add(topPane);
+	        topPane.setPrefHeight(40.0);
+
+	        // 上段のコンテナに貼るラベル
+	        Label accountLabel = new Label("Account");
+	        topPane.getChildren().add(accountLabel);
+
+	        accountLabel.setPrefWidth(80.0);
+	        AnchorPane.setTopAnchor(accountLabel, 0.0);
+	        AnchorPane.setLeftAnchor(accountLabel, 0.0);
+
+	        // 上段のコンテナに貼る文字入力ためのテキストフィールド
+	        TextField accountField = new TextField();
+	        topPane.getChildren().add(accountField);
+
+	        accountField.setPrefWidth(160.0);
+	        AnchorPane.setTopAnchor(accountField, 0.0);
+	        AnchorPane.setLeftAnchor(accountField, 80.0);
+	        AnchorPane.setRightAnchor(accountField, 0.0);
+
+	        // 中段に配置するコンテナ
+	        AnchorPane middlePane = new AnchorPane();
+	        vbox.getChildren().add(middlePane);
+	        middlePane.setPrefHeight(40.0);
+
+	        // 中段のコンテナに貼るラベル
+	        Label passwordLabel = new Label("Password");
+	        middlePane.getChildren().add(passwordLabel);
+
+	        passwordLabel.setPrefWidth(80.0);
+	        AnchorPane.setTopAnchor(passwordLabel, 0.0);
+	        AnchorPane.setLeftAnchor(passwordLabel, 0.0);
+
+	        // 中段のコンテナに貼るパスワード入力ためのパスワードフィールド
+	        PasswordField passwordField = new PasswordField();
+	        middlePane.getChildren().add(passwordField);
+
+	        passwordField.setPrefWidth(160.0);
+	        AnchorPane.setTopAnchor(passwordField, 0.0);
+	        AnchorPane.setLeftAnchor(passwordField, 80.0);
+	        AnchorPane.setRightAnchor(passwordField, 0.0);
+
+	        // 下段に配置するコンテナ
+	        HBox bottomPane = new HBox(14.0);
+	        vbox.getChildren().add(bottomPane);
+
+	        bottomPane.setPrefHeight(30.0);
+	        bottomPane.setAlignment(Pos.TOP_RIGHT);
+
+	        // 下段コンテナに貼るボタン
+	        Button loginButton = new Button("Login");
+	        bottomPane.getChildren().add(loginButton);
+	        Button cancelButton = new Button("Cancel");
+	        bottomPane.getChildren().add(cancelButton);
+
+	        stage.show();
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
+}

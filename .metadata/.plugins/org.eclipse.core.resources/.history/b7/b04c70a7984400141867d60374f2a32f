@@ -1,0 +1,27 @@
+package twgitter.gui;
+
+public class StreamGetService extends Service{
+	private StringProperty url = new StringProperty();
+    public final void setUrl(String value) {
+        url.set(value);
+    }
+    public final String getUrl() {
+        return url.get();
+    }
+    public final StringProperty urlProperty() {
+        return url;
+    }
+    protected Task createTask() {
+        final String _url = getUrl();
+        return new Task<InputStream>() {
+            protected String call() {
+                URL u = new URL(_url);
+                BufferedReader in = new BufferedReader(
+                        new InputSreamReader(u.openStream());
+                String result = in.readLine();
+                in.close();
+                return result;
+            }
+        }
+    }
+}

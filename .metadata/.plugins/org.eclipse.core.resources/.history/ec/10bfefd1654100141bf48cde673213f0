@@ -1,0 +1,53 @@
+package twgitter.general;
+
+import java.util.List;
+
+public class AllMessages {
+	//取得元
+	String AppType;
+
+
+	//Postの実態URL
+	String post_url;
+	//作成日時
+	String created_at;
+
+
+	//Postの内容
+	String html;
+	String text;
+	//ハッシュタグ・リンク・メンション情報
+	List<AllHashtag> allHashtag;
+	List<AllLink> allLink;
+	List<AllMention> allMention;
+
+
+	//PostのID
+	String id;
+	String thread_id;//親PostのID
+
+
+	//リプ数・リポスト数・ファボ数
+	int num_replies;
+	int num_reposts;
+	int num_stars;
+	//自分がリポスト・ファボしたか
+	boolean you_reposted;
+	boolean you_starred;
+
+
+	//ユーザー情報
+	AllUser allUser;
+
+
+	//クライアント情報
+	ClientInf clientInf;
+
+
+	//実際に投稿者が投稿したかどうか(APIでないか)
+	boolean machine_only;
+
+
+	//PaginationのID
+	int pagination_id;
+}
