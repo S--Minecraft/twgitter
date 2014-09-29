@@ -1,5 +1,8 @@
 package twgitter.gui;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.geometry.Bounds;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,22 +16,16 @@ import twgitter.general.AllMessages;
 public class MessageBox {
 	public static VBox makeMessageBox(AllMessages msg)
 	{
-		String appNameStr = msg.getAppType();//"Twitter";
+		String appNameStr = "Twitter";/*msg.getAppType();*/
 		String userImageURL = "http://sminecraft.page2.jp/_include/img/profile/profile.png";
-		String userNameStr = msg.getUser().getDisplayname();//"S";
-		String userScreenNameStr = msg.getUser().getUsername();//"S__Minecraft";
-		String textStr = msg.getText();//"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nテステス\n\nfromソース\n600";
-		String createdDateStr = msg.getCreated_at().toString();//"1970/01/01 00:00:00";
-		String editedDateStr = "";
-		/*
-		if(msg.getEdited_at().toString() != null)
-		{
-			editedDateStr = msg.getEdited_at().toString();//"1970/01/01 00:01:00";
-		}
-		*/
-		int favCountInt = msg.getNum_stars();//0;
-		int repostCountInt = msg.getNum_reposts();//0;
-		int spreadCountInt = msg.getNum_spread();//0;
+		String userNameStr = "S";/*msg.getUser().getDisplayname();*/
+		String userScreenNameStr = "S__Minecraft";/*msg.getUser().getUsername();*/
+		String textStr = "aaaaaaaaaaaaaa\naaaa\naaaaa\n\n\naaaaaaaaaaaaaaaa\n\n\n\n\naaaaaaaaaaaaaaaaaa\nテステス\n\nfromソース\n600";/*msg.getText();*/
+		String createdDateStr = "1970/01/01 00:00:00";/*msg.getCreated_at().toString();//*/
+		String editedDateStr = "1970/01/01 00:01:00";
+		int favCountInt = 0;/*msg.getNum_stars();*/
+		int repostCountInt = 0;/*msg.getNum_reposts();*/
+		int spreadCountInt = 0;/*msg.getNum_spread();*/
 
 		VBox out = new VBox();
 		out.setStyle("-fx-background-color: #ffffff");
@@ -37,7 +34,7 @@ public class MessageBox {
 		vbox.setStyle("-fx-background-color: #ffffff; -fx-padding: 5 5 5 5");
 		out.getChildren().addAll(vbox);
 
-		HBox main = new HBox();
+		final HBox main = new HBox();
 		HBox bottomFunc = new HBox();
 		bottomFunc.setStyle("-fx-background-color: #ffffff");
 		vbox.getChildren().addAll(main,bottomFunc);
@@ -45,18 +42,18 @@ public class MessageBox {
 		/*
 		 * Start Main
 		 */
-		VBox mainLeft = new VBox();
-		VBox mainMiddle = new VBox();
+		final VBox mainLeft = new VBox();
+		final VBox mainMiddle = new VBox();
 		main.getChildren().addAll(mainLeft,mainMiddle);
 
 		/*
 		 * Start Main/Left
 		 */
 		VBox appNameBox = new VBox();
-		VBox userContent = new VBox();
+		final VBox userContent = new VBox();
 		mainLeft.getChildren().addAll(appNameBox,userContent);
 
-		Label appName = new Label(appNameStr);
+		final Label appName = new Label(appNameStr);
 		appName.setFont(new Font(10));
 		appNameBox.getChildren().addAll(appName);
 
@@ -64,6 +61,7 @@ public class MessageBox {
 		ImageView userImageView = new ImageView(userImage);
 		userImageView.setFitWidth(50);
 		userImageView.setFitHeight(50);
+		/*
 		VBox userNameBox = new VBox();
 		VBox userScreenNameBox = new VBox();
 		userContent.getChildren().addAll(userImageView,userNameBox,userScreenNameBox);
@@ -84,13 +82,75 @@ public class MessageBox {
 		}
 		userScreenName.setFont(new Font(10));
 		userScreenNameBox.getChildren().addAll(userScreenName);
+		*/
+
+		//------------------------------------
+		final VBox userNameRoot = new VBox();
+		final VBox userScreenNameRoot = new VBox();
+		userContent.getChildren().addAll(userImageView,userNameRoot,userScreenNameRoot);
+
+		Label userName = new Label(userNameStr);
+		if(userNameStr.toCharArray().length>2)
+		{
+			userName.wrapTextProperty().setValue(true);
+			userName.ellipsisStringProperty().setValue("…");
+		}
+		Label userScreenName = new Label("@" + userScreenNameStr);
+		if(userScreenNameStr.toCharArray().length>2)
+		{
+			userScreenName.wrapTextProperty().setValue(true);
+			userScreenName.ellipsisStringProperty().setValue("…");
+		}
+
+		userName.boundsInParentProperty().addListener(new ChangeListener<Bounds>() {
+			@Override
+			public void changed(ObservableValue<? extends Bounds> ov, Bounds old, Bounds b)
+			{
+				if(userNameRoot.heightProperty().get()<b.getHeight())
+				{
+					userNameRoot.minHeightProperty().setValue(b.getHeight());
+					/*
+					userContent.minHeightProperty().bind(userNameRoot.heightProperty().add(userScreenNameRoot.heightProperty()).add(50));
+					mainLeft.minHeightProperty().bind(userContent.heightProperty().add(appName.heightProperty()));
+					*/
+					//if(mainLeft.minHeightProperty().get() > main.heightProperty().get())
+					//{
+					//	main.minHeightProperty().setValue(mainLeft.minHeightProperty().get());
+					//}
+				}
+				//System.out.println("[userName]" + b.getHeight());
+			}
+		});
+		userScreenName.boundsInParentProperty().addListener(new ChangeListener<Bounds>() {
+			@Override
+			public void changed(ObservableValue<? extends Bounds> ov, Bounds old, Bounds b)
+			{
+				if(userScreenNameRoot.heightProperty().get()<b.getHeight())
+				{
+					userScreenNameRoot.minHeightProperty().setValue(b.getHeight());
+					/*
+					userContent.minHeightProperty().bind(userNameRoot.heightProperty().add(userScreenNameRoot.heightProperty()).add(50));
+					mainLeft.minHeightProperty().bind(userContent.heightProperty().add(appName.heightProperty()));
+					*/
+					//if(mainLeft.minHeightProperty().get() > main.heightProperty().get())
+					//{
+					//	main.minHeightProperty().setValue(mainLeft.minHeightProperty().get());
+					//}
+				}
+				//System.out.println("[userScreenName]" + b.getHeight());
+			}
+		});
+		userNameRoot.getChildren().addAll(userName);
+		userScreenNameRoot.getChildren().addAll(userScreenName);
+		//------------------------------------
+
 
 		/*
 		 * Start Main/Middle
 		 */
-		VBox date = new VBox();
-		VBox textBox = new VBox();
-		mainMiddle.getChildren().addAll(date,textBox);
+		final VBox date = new VBox();
+		final VBox textRoot = new VBox();
+		mainMiddle.getChildren().addAll(date,textRoot);
 
 		Label text = new Label(textStr);
 		text.setStyle("-fx-background-color: #eeeeee");
@@ -98,7 +158,23 @@ public class MessageBox {
 		{
 			text.wrapTextProperty().setValue(true);
 		}
-		textBox.getChildren().addAll(text);
+		text.boundsInParentProperty().addListener(new ChangeListener<Bounds>() {
+			@Override
+			public void changed(ObservableValue<? extends Bounds> ov, Bounds old, Bounds b)
+			{
+				if(textRoot.heightProperty().get()<b.getHeight())
+				{
+					textRoot.minHeightProperty().setValue(b.getHeight());
+					//mainMiddle.minHeightProperty().bind(date.heightProperty().add(textRoot.minHeightProperty()));
+					//if(mainMiddle.minHeightProperty().get()>main.heightProperty().get())
+					//{
+					//	main.minHeightProperty().setValue(mainMiddle.minHeightProperty().get());
+					//}
+				}
+				//System.out.println("[Text]" + b.getHeight());
+			}
+		});
+		textRoot.getChildren().addAll(text);
 
 		Label createDate = new Label(createdDateStr);
 		createDate.setFont(new Font(10));
@@ -165,76 +241,63 @@ public class MessageBox {
 		appNameBox.maxWidthProperty().bind(mainLeft.widthProperty());
 		userContent.minWidthProperty().bind(mainLeft.widthProperty());
 		userContent.maxWidthProperty().bind(mainLeft.widthProperty());
+		/*
 		userNameBox.minWidthProperty().bind(mainLeft.widthProperty());
 		userNameBox.maxWidthProperty().bind(mainLeft.widthProperty());
 		userScreenNameBox.minWidthProperty().bind(mainLeft.widthProperty());
 		userScreenNameBox.maxWidthProperty().bind(mainLeft.widthProperty());
+		*/
+		//---------------
+		userNameRoot.minWidthProperty().bind(mainLeft.widthProperty());
+		userNameRoot.maxWidthProperty().bind(mainLeft.widthProperty());
+		userScreenNameRoot.minWidthProperty().bind(mainLeft.widthProperty());
+		userScreenNameRoot.maxWidthProperty().bind(mainLeft.widthProperty());
+		//---------------
 
 		appName.minWidthProperty().bind(appNameBox.widthProperty());
 		appName.maxWidthProperty().bind(appNameBox.widthProperty());
+		/*
 		userName.minWidthProperty().bind(userNameBox.widthProperty());
 		userName.maxWidthProperty().bind(userNameBox.widthProperty());
 		userScreenName.minWidthProperty().bind(userScreenNameBox.widthProperty());
 		userScreenName.maxWidthProperty().bind(userScreenNameBox.widthProperty());
+		*/
+		//---------------
+		userName.minWidthProperty().bind(userNameRoot.widthProperty());
+		userName.maxWidthProperty().bind(userNameRoot.widthProperty());
+		userScreenName.minWidthProperty().bind(userScreenNameRoot.widthProperty());
+		userScreenName.maxWidthProperty().bind(userScreenNameRoot.widthProperty());
+		//---------------
 
 		date.minWidthProperty().bind(mainMiddle.widthProperty());
 		date.maxWidthProperty().bind(mainMiddle.widthProperty());
+		/*
 		textBox.minWidthProperty().bind(mainMiddle.widthProperty().subtract(10));
 		textBox.maxWidthProperty().bind(mainMiddle.widthProperty().subtract(10));
 		text.minWidthProperty().bind(textBox.widthProperty());
 		text.maxWidthProperty().bind(textBox.widthProperty());
+		*/
+		//-----------------
+		textRoot.minWidthProperty().bind(mainMiddle.widthProperty().subtract(10));
+		textRoot.maxWidthProperty().bind(mainMiddle.widthProperty().subtract(10));
+		text.minWidthProperty().bind(textRoot.widthProperty());
+		text.maxWidthProperty().bind(textRoot.widthProperty());
+		//-----------------
 		createDate.minWidthProperty().bind(mainMiddle.widthProperty());
 		createDate.maxWidthProperty().bind(mainMiddle.widthProperty());
 		editedDate.minWidthProperty().bind(mainMiddle.widthProperty());
 		editedDate.maxWidthProperty().bind(mainMiddle.widthProperty());
 
 		//Height
-		/*
-		if(userNameBox.maxHeightProperty().get() + userScreenNameBox.maxHeightProperty().get() + 50 + appNameBox.maxHeightProperty().get() > main.heightProperty().get())
-		{
-			main.minHeightProperty().setValue(userNameBox.maxHeightProperty().get() + userScreenNameBox.maxHeightProperty().get() + 50 + appNameBox.maxHeightProperty().get());
-		}
-
-		userContent.minHeightProperty().bind(userNameBox.heightProperty().add(userScreenNameBox.heightProperty()).add(50));
-		userContent.maxHeightProperty().bind(userNameBox.heightProperty().add(userScreenNameBox.heightProperty()).add(50));
-		mainLeft.minHeightProperty().bind(userContent.heightProperty().add(appName.heightProperty()));
-		mainLeft.maxHeightProperty().bind(userContent.heightProperty().add(appName.heightProperty()));
-		/*
 		date.minHeightProperty().bind(createDate.heightProperty().add(editedDate.heightProperty()));
-		date.maxHeightProperty().bind(createDate.heightProperty().add(editedDate.heightProperty()));
-		text.minHeightProperty().setValue(text.maxHeightProperty().get());
-		mainMiddle.minHeightProperty().bind(date.heightProperty().add(text.maxHeightProperty()));
-		mainMiddle.maxHeightProperty().bind(date.heightProperty().add(text.maxHeightProperty()));
-		*/
 
-		/*
-		DoubleProperty biggerHeightProperty = new SimpleDoubleProperty();
-		if(mainLeft.heightProperty().get() < mainMiddle.heightProperty().get())
-		{
-			biggerHeightProperty.add(mainMiddle.heightProperty());
-		}else if(mainMiddle.heightProperty().get() <= mainLeft.heightProperty().get()){
-			biggerHeightProperty.add(mainLeft.heightProperty());
-		}else{
-			biggerHeightProperty.add(mainMiddle.heightProperty());
-		}
-		main.minHeightProperty().bind(biggerHeightProperty);
-		main.maxHeightProperty().bind(biggerHeightProperty);
-		*/
+		userContent.minHeightProperty().bind(userNameRoot.heightProperty().add(userScreenNameRoot.heightProperty()).add(50));
+		mainLeft.minHeightProperty().bind(userContent.heightProperty().add(appName.heightProperty()));
 
-		/*
-		ReadOnlyDoubleProperty biggestHeightProperty;
-		if(mainLeft.heightProperty().get() < mainMiddle.heightProperty().get())
-		{
-			biggestHeightProperty = mainMiddle.heightProperty();
-		}else if(mainMiddle.heightProperty().get() <= mainLeft.heightProperty().get()){
-			biggestHeightProperty = mainLeft.heightProperty();
-		}else{
-			biggestHeightProperty = mainMiddle.heightProperty();
-		}
+		mainMiddle.minHeightProperty().bind(date.heightProperty().add(textRoot.minHeightProperty()));
 
-
-		vbox.minHeightProperty().bind(biggestHeightProperty.add(bottomFunc.heightProperty()));
-		*/
+		vbox.minHeightProperty().bind(main.heightProperty().add(bottomFunc.heightProperty()));
+		out.minHeightProperty().bind(vbox.heightProperty());
 
 		return out;
 	}

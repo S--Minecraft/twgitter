@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="twgitter.config.Tokens"/>
-<fullyQualifiedTypeName name="twgitter.config.AllTokens"/>
-<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
@@ -11,7 +8,6 @@
 <fullyQualifiedTypeName name="twgitter.get.GetHTTP"/>
 <fullyQualifiedTypeName name="twgitter.gitter.Streaming"/>
 <fullyQualifiedTypeName name="javafx.scene.control.TextArea"/>
-<fullyQualifiedTypeName name="javafx.event.EventHandler"/>
 <fullyQualifiedTypeName name="javafx.scene.control.TabPane"/>
 <fullyQualifiedTypeName name="javafx.scene.control.Tab"/>
 <fullyQualifiedTypeName name="javafx.geometry.Side"/>
@@ -24,11 +20,8 @@
 <fullyQualifiedTypeName name="javafx.scene.control.ScrollBar"/>
 <fullyQualifiedTypeName name="javafx.scene.control.ScrollPane"/>
 <fullyQualifiedTypeName name="javafx.animation.AnimationTimer"/>
-<fullyQualifiedTypeName name="javafx.beans.value.ObservableValue"/>
-<fullyQualifiedTypeName name="javafx.beans.value.ChangeListener"/>
 <fullyQualifiedTypeName name="twgitter.gui.Test"/>
 <fullyQualifiedTypeName name="javafx.scene.layout.VBox"/>
-<fullyQualifiedTypeName name="javafx.scene.control.Label"/>
 <fullyQualifiedTypeName name="javafx.scene.image.Image"/>
 <fullyQualifiedTypeName name="javafx.scene.image.ImageView"/>
 <fullyQualifiedTypeName name="java.net.URI"/>
@@ -52,12 +45,19 @@
 <fullyQualifiedTypeName name="javafx.beans.property.IntegerProperty"/>
 <fullyQualifiedTypeName name="javafx.beans.property.DoubleProperty"/>
 <fullyQualifiedTypeName name="javafx.beans.property.SimpleDoubleProperty"/>
-<fullyQualifiedTypeName name="javafx.application.Application"/>
-<fullyQualifiedTypeName name="javafx.scene.shape.Rectangle"/>
-<fullyQualifiedTypeName name="javafx.geometry.Bounds"/>
 <fullyQualifiedTypeName name="javafx.scene.text.Text"/>
 <fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="twgitter.general.AllMessages"/>
 <fullyQualifiedTypeName name="javafx.scene.Node"/>
+<fullyQualifiedTypeName name="javafx.beans.value.ObservableValue"/>
+<fullyQualifiedTypeName name="javafx.application.Application"/>
+<fullyQualifiedTypeName name="javafx.scene.control.Label"/>
+<fullyQualifiedTypeName name="javafx.scene.layout.Pane"/>
+<fullyQualifiedTypeName name="javafx.scene.shape.Rectangle"/>
+<fullyQualifiedTypeName name="javafx.scene.paint.Color"/>
+<fullyQualifiedTypeName name="javafx.beans.value.ChangeListener"/>
+<fullyQualifiedTypeName name="javafx.geometry.Bounds"/>
+<fullyQualifiedTypeName name="javafx.event.EventHandler"/>
+<fullyQualifiedTypeName name="javafx.scene.input.MouseEvent"/>
 </qualifiedTypeNameHistroy>

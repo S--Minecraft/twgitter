@@ -1,8 +1,0 @@
-package twgitter.general;
-
-public class AllEntity {
-	//メディアのURL
-	String media_url;
-	//メディアのタイプ
-	String type;
-}

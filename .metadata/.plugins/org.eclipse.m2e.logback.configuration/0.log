@@ -212,3 +212,4 @@ org.eclipse.jdt.core.JavaModelException: Spread_status.java [in twgitter.croudia
 2014-09-26 20:54:34,581 [main] WARN  o.e.r.i.c.rcp.TypeBindingAnalyzer - Can't handle %s as parent of completion location.
 2014-09-26 20:58:56,214 [main] WARN  o.e.r.i.c.rcp.TypeBindingAnalyzer - Can't handle %s as parent of completion location.
 2014-09-27 17:42:37,774 [main] WARN  o.e.r.i.c.r.ChainCompletionProposalComputer - Can't handle %s as class member.
+2014-09-28 18:19:05,436 [main] WARN  o.e.r.i.c.rcp.TypeBindingAnalyzer - Can't handle %s as parent of completion location.
