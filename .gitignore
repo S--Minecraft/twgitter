@@ -15,6 +15,8 @@ local.properties
 .classpath
 .settings/
 .loadpath
+.metadata/
+RemoteSystemsTempFiles/
 
 # External tool builders
 .externalToolBuilders/
