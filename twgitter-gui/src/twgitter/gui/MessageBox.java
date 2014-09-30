@@ -1,5 +1,7 @@
 package twgitter.gui;
 
+import java.io.IOException;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Bounds;
@@ -11,12 +13,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
+import twgitter.config.OtherConfig;
 import twgitter.general.AllMessages;
 
 public class MessageBox {
-	public static VBox makeMessageBox(AllMessages msg)
+	public static VBox makeMessageBox(AllMessages msg,OtherConfig otherCfg) throws IOException
 	{
-		String appNameStr = "Twitter";/*msg.getAppType();*/
+		String appNameStr = "None";/*msg.getAppType();*/
 		String userImageURL = "http://sminecraft.page2.jp/_include/img/profile/profile.png";
 		String userNameStr = "S";/*msg.getUser().getDisplayname();*/
 		String userScreenNameStr = "S__Minecraft";/*msg.getUser().getUsername();*/
@@ -26,6 +29,28 @@ public class MessageBox {
 		int favCountInt = 0;/*msg.getNum_stars();*/
 		int repostCountInt = 0;/*msg.getNum_reposts();*/
 		int spreadCountInt = 0;/*msg.getNum_spread();*/
+
+		String appIconStr = "";
+		int appIconSize = 32;
+		switch(otherCfg.getOtherAppIconSize())
+		{
+		case  16: appIconSize = 16;  break;
+		case  32: appIconSize = 32;  break;
+		case  64: appIconSize = 64;  break;
+		case 128: appIconSize = 128; break;
+		default : appIconSize = 32;  break;
+		}
+		switch(appNameStr)
+		{
+		case "App.net": appIconStr = "app.net-" + appIconSize; break;
+		case "Croudia": appIconStr = "croudia-" + appIconSize; break;
+		case "Gitter" : appIconStr = "gitter-" + appIconSize;  break;
+		case "IRC"    : appIconStr = "IRC-" + appIconSize;     break;
+		case "Slack"  : appIconStr = "slack-" + appIconSize;   break;
+		case "Twitter": appIconStr = "twitter-" + appIconSize; break;
+		default       : appIconStr = "none";                   break;
+		}
+
 
 		VBox out = new VBox();
 		out.setStyle("-fx-background-color: #ffffff");
@@ -53,9 +78,12 @@ public class MessageBox {
 		final VBox userContent = new VBox();
 		mainLeft.getChildren().addAll(appNameBox,userContent);
 
+		System.out.println("twgitter/assets/socialIcons/"+ appIconStr + ".png");
+		Image appIcon = new Image("twgitter/assets/socialIcons/"+ appIconStr + ".png",16,16,false,true);
+		ImageView appIconView = new ImageView(appIcon);
 		final Label appName = new Label(appNameStr);
 		appName.setFont(new Font(10));
-		appNameBox.getChildren().addAll(appName);
+		appNameBox.getChildren().addAll(appIconView,appName);
 
 		Image userImage = new Image(userImageURL);
 		ImageView userImageView = new ImageView(userImage);

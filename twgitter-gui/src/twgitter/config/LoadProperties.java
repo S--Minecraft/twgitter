@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -157,5 +158,29 @@ public class LoadProperties {
 		}
 
 		return newList;
+	}
+
+	public static OtherConfig loadOtherConfig() {
+		String basepath = System.getProperty("java.io.tmpdir");
+		String filename = basepath + "\\twgitter\\config\\other.cfg";  // プロパティファイルのファイル名
+
+		Properties cfg = new Properties();
+
+		try {
+			cfg.load(new InputStreamReader(new FileInputStream(filename), "SJIS"));
+		} catch (IOException e) {
+			System.err.println("Cannot open " + filename + ".");
+			e.printStackTrace();
+			System.exit(-1);  // プログラム終了
+		}
+
+		// 読み込み
+		OtherConfig other = new OtherConfig();
+
+		other.setOtherAppIconSize(Integer.parseInt(cfg.getProperty("Other.AppIconSize")));
+
+		System.out.println("[Misc][Config]Successfully finished loading the other config.");
+
+		return other;
 	}
 }

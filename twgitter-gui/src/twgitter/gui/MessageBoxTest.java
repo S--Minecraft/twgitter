@@ -1,9 +1,14 @@
 package twgitter.gui;
 
+import java.io.IOException;
+import java.text.ParseException;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import twgitter.config.LoadProperties;
+import twgitter.config.OtherConfig;
 
 public class MessageBoxTest extends Application {
 	public static void main(String[] args) throws Exception{
@@ -15,8 +20,10 @@ public class MessageBoxTest extends Application {
 	}
 
 	@Override
-	public void start(Stage stage) throws InterruptedException {
-		VBox message = MessageBox.makeMessageBox(null);
+	public void start(Stage stage) throws InterruptedException, ParseException, IOException {
+		OtherConfig otherCfg = LoadProperties.loadOtherConfig();
+
+		VBox message = MessageBox.makeMessageBox(null,otherCfg);
 		Scene scene = new Scene(message);
 
 		message.minWidthProperty().setValue(300);
