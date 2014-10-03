@@ -1,6 +1,7 @@
 package twgitter.croudia;
 
 import twgitter.TestThread;
+import twgitter.config.LoadProperties;
 import twgitter.get.Command;
 
 import com.google.gson.Gson;
@@ -26,6 +27,8 @@ public class TokenRefresh {
 		TestThread.allTokens.setCroudiaToken_type(tokens.getToken_type());
 		TestThread.allTokens.setCroudiaExpires_in(tokens.getExpires_in());
 		TestThread.allTokens.setCroudiaRefresh_token(tokens.getRefresh_token());
+
+		LoadProperties.setTokenConfig(TestThread.allTokens);
 
 		System.out.println("[Croudia]Successed to refresh the token.");
 	}

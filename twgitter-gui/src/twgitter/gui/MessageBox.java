@@ -19,6 +19,7 @@ import twgitter.general.AllMessages;
 public class MessageBox {
 	public static VBox makeMessageBox(AllMessages msg,OtherConfig otherCfg) throws IOException
 	{
+		AllMessages Msg = msg;
 		String appNameStr = "None";/*msg.getAppType();*/
 		String userImageURL = "http://sminecraft.page2.jp/_include/img/profile/profile.png";
 		String userNameStr = "S";/*msg.getUser().getDisplayname();*/

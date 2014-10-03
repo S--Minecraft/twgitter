@@ -98,7 +98,7 @@ public class LoadProperties {
 		cfg.setProperty("Twitter.AccessToken", allTokens.getTwitterAccessToken());
 		cfg.setProperty("Twitter.AccessTokenSecret", allTokens.getTwitterAccessTokenSecret());
 
-		cfg.store(new FileOutputStream(filename), filename);
+		cfg.store(new FileOutputStream(filename), " Twgitter token config\n# A config for tokens\n#");
 
 		System.out.println("[Misc][Config]Successfully finished writing to the token config.");
 	}

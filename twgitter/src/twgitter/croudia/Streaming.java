@@ -16,17 +16,23 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 public class Streaming {
-	//curl -k -H "Host: api.croudia.com" -H "Authorization: Bearer 58546eb740bf61f818e1e8fe1b136f45710d6a06ede4cfbf7426da89072b2d42" https://api.croudia.com/statuses/home_timeline.json
+	//curl -k -H "Host: api.croudia.com" -H "Authorization: Bearer 526b902757b640e63a1c09787555ce9acd604e2dfc78efc8cf4e7a6e586de162" https://api.croudia.com/statuses/home_timeline.json
 
 	public static Date streaming(Date lastDate) throws Exception {
 		String URI = "https://api.croudia.com/statuses/home_timeline.json";
-		String[][] Header = { {"Host", "api.croudia.com"}, {"Authorization", "Bearer " + TestThread.allTokens.getCroudiaAccess_token()} };
+		String[][] Header = { {"Host", "api.croudia.com"}, {"Authorization", "Bearer " + TestThread.allTokens.getCroudiaAccess_token()}, {"Accept","Application/json"} };
 		String CharCode = "UTF-8";
 		Gson gson = new Gson();
 		List<String> json = new ArrayList<>();
 		Date nowGet = new Date();
 
-		json = GetHTTP.AccessHTTPString(URI,Header,CharCode);
+		try {
+			json = GetHTTP.AccessHTTPString(URI,Header,CharCode);
+		} catch (Exception e) {
+			e.printStackTrace();
+			TokenRefresh.refreshToken();
+			json = GetHTTP.AccessHTTPString(URI,Header,CharCode);
+		}
 
 		String jsonString = json.get(0);
 
