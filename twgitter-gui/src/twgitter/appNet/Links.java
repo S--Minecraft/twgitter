@@ -1,5 +1,7 @@
 package twgitter.appNet;
 
+import twgitter.general.AllLink;
+
 public class Links {
 	int len;//textの長さ(#含む) forSubstring
 	int pos;//textの開始位置
@@ -10,4 +12,16 @@ public class Links {
 	public int getPos() {return pos;}
 	public String getText() {return text;}
 	public String getUrl() {return url;}
+
+	public AllLink toAllHashtag()
+	{
+		AllLink link = new AllLink();
+
+		link.setLen(len);
+		link.setPos(pos);
+		link.setText(text);
+		link.setUrl(url);
+
+		return link;
+	}
 }

@@ -13,25 +13,48 @@ import twgitter.croudia.StreamGetterC;
 import twgitter.croudia.TokenRefresh;
 import twgitter.gitter.Streaming;
 import twgitter.slack.HistoryGetter;
+import twgitter.twitter.GetConfig;
+import twgitter.twitter.Tweet;
 import twgitter.twitter.UserStream;
+import twitter4j.conf.Configuration;
 
 public class TestThread extends Thread {
 	public static AllTokens allTokens;
+	public static Configuration twitterCfg;
 
+	public static UserStream twitter;
+	public static Tweet twitterTweet;
+
+	/*
 	public void run() {
-		try {
-			main();
-		} catch (Exception e) {
-			e.printStackTrace();
+		for(int i = 1; i <= 10; i++) {
+			System.out.println(getName() + ":" + i);
+			try {
+				sleep(180000);
+			} catch (InterruptedException e) {
+			}
 		}
-	}
+	}*/
 
 	public static void main(String[] args) throws Exception{
+		/*
+		 * Start All
+		 */
+		//Load Config
 		GeneralConfig generalCfg = LoadProperties.loadGeneralConfig();
 
 		AllTokens tokens = LoadProperties.loadTokenConfig();
 		allTokens = tokens;
 
+		//Load Twitter Config
+		if(generalCfg.isConnectTwitter())
+		{
+			GetConfig.doConfig();
+			Configuration cfg = GetConfig.cb.build();
+			twitterCfg = cfg;
+		}
+
+		//Croudia Token Refresh
 		if(generalCfg.isConnectCroudia())
 		{
 			Date tokenExpirationDate = tokens.getCroudiaGetDateDate();
@@ -45,8 +68,16 @@ public class TestThread extends Thread {
 			}
 		}
 
+		/*
+		 * Make Instance
+		 */
 		//twitter
-		UserStream twitter = new UserStream();
+		//UserStream twitter = new UserStream();
+		if(generalCfg.isConnectTwitter())
+		{
+			twitter = new UserStream(twitterCfg);
+			twitterTweet = new Tweet(twitterCfg);
+		}
 
 		//app.net
 		StreamGetterA appNet = new StreamGetterA();
@@ -84,9 +115,14 @@ public class TestThread extends Thread {
 		/*Connect IRC_parallelnote = *///new Connect("irc.friend-chat.jp",6667,"S_twgitter","#parallelnote");
 		/*Connect IRC_twgitter = *///new Connect("irc.friend-chat.jp",6667,"S__twgitter","#S__twgitter");
 
+		/*
+		 * Start Thread
+		 */
+
 		if(generalCfg.isConnectTwitter())
 		{
 			twitter.start();
+			twitterTweet.start();
 		}
 		if(generalCfg.isConnectAppNet())
 		{

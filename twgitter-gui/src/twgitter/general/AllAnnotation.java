@@ -1,8 +1,12 @@
 package twgitter.general;
 
-import twgitter.appNet.Value;
-
 public class AllAnnotation {
 	String type;
-	Value value;
+	String url;
+
+	public String getType() {return type;}
+	public String getUrl() {return url;}
+
+	public void setType(String type) {this.type = type;}
+	public void setUrl(String url) {this.url = url;}
 }

@@ -52,6 +52,10 @@ public class Data {
 		msg.setAppType("App.net");
 		msg.setPost_url(canonical_url);
 		msg.setCreated_at(Streaming.appNetDateStringToDate(created_at));
+		msg.setHashtag(entities.getListAllHashtag());
+		msg.setLink(entities.getListAllLinks());
+		msg.setMention(entities.getListAllMentions());
+
 		msg.setHtml(html);
 		msg.setId(id);
 		msg.setMachine_only(machine_only);
@@ -66,5 +70,12 @@ public class Data {
 		msg.setPagination_id(pagination_id);
 
 		return msg;
+	}
+
+	public AllMessages toAllMessages(Data msg) throws ParseException
+	{
+		AllMessages Msg = msg.toAllMessages();
+
+		return Msg;
 	}
 }
