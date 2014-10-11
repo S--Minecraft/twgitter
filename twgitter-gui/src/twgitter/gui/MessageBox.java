@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import twgitter.config.OtherConfig;
@@ -20,11 +21,12 @@ public class MessageBox {
 	public static VBox makeMessageBox(AllMessages msg,OtherConfig otherCfg) throws IOException
 	{
 		AllMessages Msg = msg;
-		String appNameStr = "None";/*msg.getAppType();*/
+		String appNameStr = "Twitter";/*msg.getAppType();*/
 		String userImageURL = "http://sminecraft.page2.jp/_include/img/profile/profile.png";
+		String reUserImageURL = "https://pbs.twimg.com/profile_images/520477561210413056/-jzorU40.png";
 		String userNameStr = "S";/*msg.getUser().getDisplayname();*/
 		String userScreenNameStr = "S__Minecraft";/*msg.getUser().getUsername();*/
-		String textStr = "aaaaaaaaaaaaaa\naaaa\naaaaa\n\n\naaaaaaaaaaaaaaaa\n\n\n\n\naaaaaaaaaaaaaaaaaa\nテステス\n\nfromソース\n600";/*msg.getText();*/
+		String textStr = "RTとかの内容ーーーーーー\n\n\n\n\n\n\n\n\n";/*msg.getText();*/
 		String createdDateStr = "1970/01/01 00:00:00";/*msg.getCreated_at().toString();//*/
 		String editedDateStr = "1970/01/01 00:01:00";
 		int favCountInt = 0;/*msg.getNum_stars();*/
@@ -79,17 +81,24 @@ public class MessageBox {
 		final VBox userContent = new VBox();
 		mainLeft.getChildren().addAll(appNameBox,userContent);
 
-		System.out.println("twgitter/assets/socialIcons/"+ appIconStr + ".png");
 		Image appIcon = new Image("twgitter/assets/socialIcons/"+ appIconStr + ".png",16,16,false,true);
 		ImageView appIconView = new ImageView(appIcon);
 		final Label appName = new Label(appNameStr);
 		appName.setFont(new Font(10));
 		appNameBox.getChildren().addAll(appIconView,appName);
 
+		StackPane userImages = new StackPane();
+		userImages.setAlignment(Pos.BOTTOM_RIGHT);
 		Image userImage = new Image(userImageURL);
 		ImageView userImageView = new ImageView(userImage);
 		userImageView.setFitWidth(50);
 		userImageView.setFitHeight(50);
+		Image reUserImage = new Image(reUserImageURL);
+		ImageView reUserImageView = new ImageView(reUserImage);
+		reUserImageView.setFitWidth(20);
+		reUserImageView.setFitHeight(20);
+		userImages.getChildren().addAll(userImageView,reUserImageView);
+
 		/*
 		VBox userNameBox = new VBox();
 		VBox userScreenNameBox = new VBox();
@@ -116,7 +125,7 @@ public class MessageBox {
 		//------------------------------------
 		final VBox userNameRoot = new VBox();
 		final VBox userScreenNameRoot = new VBox();
-		userContent.getChildren().addAll(userImageView,userNameRoot,userScreenNameRoot);
+		userContent.getChildren().addAll(userImages,userNameRoot,userScreenNameRoot);
 
 		Label userName = new Label(userNameStr);
 		if(userNameStr.toCharArray().length>2)

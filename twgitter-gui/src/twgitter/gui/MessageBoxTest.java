@@ -5,6 +5,7 @@ import java.text.ParseException;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import twgitter.config.LoadProperties;
@@ -31,9 +32,12 @@ public class MessageBoxTest extends Application {
 
 		//ScenicView.show(scene);
 
+		Image icon = new Image("twgitter/assets/icon.png");
+
 		// Stageの設定
+        stage.getIcons().add(icon);
+		stage.setTitle("Twgitter - MsgBoxTest");
 		stage.setScene(scene);
-		stage.setTitle("Twgitter - MessageBoxTesting...");
 		stage.setWidth(300);
 		stage.setWidth(message.getMinHeight());
 		stage.show();
