@@ -25,18 +25,16 @@ public class TestThread extends Thread {
 	public static UserStream twitter;
 	public static Tweet twitterTweet;
 
-	/*
 	public void run() {
-		for(int i = 1; i <= 10; i++) {
-			System.out.println(getName() + ":" + i);
-			try {
-				sleep(180000);
-			} catch (InterruptedException e) {
-			}
+		try {
+			main();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-	}*/
+	}
 
 	public static void main(String[] args) throws Exception{
+		System.out.println("[Misc]Starting up background process...");
 		/*
 		 * Start All
 		 */

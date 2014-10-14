@@ -6,6 +6,7 @@ import java.util.List;
 
 import twgitter.TestThread;
 import twgitter.get.GetHTTP;
+import twgitter.gitter.json.Room;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

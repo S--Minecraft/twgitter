@@ -4,11 +4,13 @@ import java.util.Date;
 import java.util.List;
 
 import twgitter.gui.Test;
+import twgitter.slack.json.Message;
+import twgitter.slack.json.User;
 
 public class HistoryGetting {
 	public static Date historyGetting(Date now,String channel) throws Exception {
 		List<Message> messages = GetChannelHistory.jsonToMessage(GetChannelHistory.getChannelHistory(channel));
-		List<User> users = GetUsers.jsonToUser(GetUsers.getUsers());
+		List<User> users = GetUsers.jsonToListUser(GetUsers.getUsers());
 
 		for(int i = messages.size()-1;i>=0;i--)
 		{

@@ -7,6 +7,8 @@ import java.util.List;
 
 import twgitter.TestThread;
 import twgitter.get.GetHTTP;
+import twgitter.slack.json.HistoryFirst;
+import twgitter.slack.json.Message;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

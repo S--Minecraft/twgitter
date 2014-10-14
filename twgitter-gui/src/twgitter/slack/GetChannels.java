@@ -4,6 +4,8 @@ import java.util.List;
 
 import twgitter.TestThread;
 import twgitter.get.GetHTTP;
+import twgitter.slack.json.Channel;
+import twgitter.slack.json.ChannelFirst;
 
 import com.google.gson.Gson;
 

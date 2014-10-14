@@ -39,7 +39,7 @@ public class Test extends Application {
 		VBox left = new VBox();
 		VBox right = new VBox();
 		BorderPane secondBorderPane = new BorderPane();
-		String[] secondTabName = {"Messages","Favorites","Re","Reply","Mentions"};
+		String[] secondTabName = {"Messages","Favorites","Re","Reply","Mentions","PrivateMessages"};
 		secondBorderPane = Tabs.makeTab(secondBorderPane, secondTabName, 40, 40,Side.LEFT);
 		middle.getChildren().addAll(secondBorderPane,left,right);
 
@@ -114,7 +114,7 @@ public class Test extends Application {
 
 		// Stageの設定
 		stage.setScene(scene);
-		stage.setTitle("Twgitter - Testing...");
+		stage.setTitle("Twgitter");
 		stage.setWidth(500);
 		stage.setHeight(700);
 

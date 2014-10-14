@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Locale;
 
 import twgitter.TestThread;
+import twgitter.croudia.json.CroudiaStream;
+import twgitter.croudia.json.User;
 import twgitter.get.GetHTTP;
 import twgitter.gui.Test;
 

@@ -6,14 +6,19 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javafx.collections.ObservableList;
 import twgitter.TestThread;
+import twgitter.appNet.json.AppNetStream;
+import twgitter.appNet.json.User;
 import twgitter.get.GetHTTP;
-import twgitter.gui.Test;
+import twgitter.gui.message.MessageCellTest;
+import twgitter.gui.message.MessageModel;
 
 import com.google.gson.Gson;
 
 public class Streaming {
 	//curl -k -H "Authorization: Bearer AQAAAAAAC9R-kjm8uCBwXwDJxXV3_hh5VMzzlFu0bV1vk99FgQVaUq7rPswGRsAeB80yHCAeoeFWmx4oYMWOgmBwbaiH499NEw" -H "X-ADN-Pretty-JSON: 1" "https://api.app.net/posts/stream"
+	public static ObservableList<MessageModel> msgs;
 
 	public static Date streaming(Date lastDate) throws Exception {
 		// 引数からURIを生成
@@ -60,8 +65,13 @@ public class Streaming {
 				if(stream.getData().get(i).getText() != null)
 				{
 					System.out.println("[App.net][" + name + "(@" + user.getUsername()  + ")]" + stream.getData().get(i).getText());
-					Test.println("[App.net][" + name + "(@" + user.getUsername()  + ")]" + stream.getData().get(i).getText());
+					//Test.println("[App.net][" + name + "(@" + user.getUsername()  + ")]" + stream.getData().get(i).getText());
 					//Test.messageln(stream.getData().get(i).toAllMessages());
+					//msgs = createMessageModels(stream.getData().get(i).toAllMessages());
+					//MessageCellTest.listAdd(msgs);
+
+					MessageModel model = new MessageModel(stream.getData().get(i).toAllMessages());
+					MessageCellTest.listAdd(model);
 				}
 			}
 		}

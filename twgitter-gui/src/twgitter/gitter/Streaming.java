@@ -8,6 +8,8 @@ import java.net.URISyntaxException;
 import java.net.URLConnection;
 
 import twgitter.TestThread;
+import twgitter.gitter.json.ChatFromUser;
+import twgitter.gitter.json.ChatString;
 import twgitter.gui.Test;
 
 import com.google.gson.Gson;

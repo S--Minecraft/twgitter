@@ -4,6 +4,8 @@ import java.util.List;
 
 import twgitter.TestThread;
 import twgitter.get.GetHTTP;
+import twgitter.slack.json.User;
+import twgitter.slack.json.UserFirst;
 
 import com.google.gson.Gson;
 
@@ -17,7 +19,7 @@ public class GetUsers {
 		return jsonString;
 	}
 
-	public static List<User> jsonToUser(String json) {
+	public static List<User> jsonToListUser(String json) {
 		Gson gson = new Gson();
 		UserFirst userFirst = gson.fromJson(json.toString(),UserFirst.class);
 		List<User> users = userFirst.getMembers();

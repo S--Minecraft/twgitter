@@ -12,6 +12,7 @@ import java.util.TreeMap;
 import twgitter.TestThread;
 import twgitter.config.AllTokens;
 import twgitter.config.LoadProperties;
+import twgitter.croudia.json.Tokens;
 import twgitter.get.Command;
 
 import com.google.gson.Gson;
@@ -27,8 +28,7 @@ public class GetOAuth {
 
         System.out.println("ブラウザに表示された文字列を入力してください");//code
         System.out.print(">>");
-        BufferedReader input = new BufferedReader(new InputStreamReader(
-            System.in));
+        BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         String code = input.readLine();
         System.out.println("code=" + code);
 

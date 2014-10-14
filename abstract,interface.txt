@@ -1,0 +1,45 @@
+﻿AppNet
+--Streaming
+----streaming(Date)　→　URI,Header,CharCodeから取得
+----appNetDateStringToDate(String dateString)　→　String(AppNet)からDate
+--StreamGetterA
+----run()　→　一定時間で取得
+
+Croudia
+--Streaming
+----streaming(Date)　→　URI,Header,CharCodeから取得
+--StreamGetterC
+----run()　→　一定時間で取得（トークン更新あり）
+--GetOAuth
+----getOAuthCode(AllTokens)　→　AllTokens,urlStrから取得
+----croudiaDateStringToDate　→　String(croudia)からDate
+--TokenRefresh
+----refreshToken()　→　トークン更新
+
+Gitter
+--Streaming
+----Streaming(String)　→　Roomごとのインスタンス用
+----run()　→　ストリーム取得（Room名前→IDあり）
+--GetRooms
+----getRooms()　→　URI,Headerから取得
+----jsonToRooms(String)　→　String(json)からList<Room>
+----roomNameToId(String)　→　Roomの名前からRoomのID
+
+Slack
+--HistoryGetting
+----historyGetting(Date,String)　→　ChannelNameから取得
+----timestampToDate(String)　→　String(timestamp)からDate
+--HistoryGetter
+----HistoryGetting()　→　Channelごとのインスタンス用
+----run()　→　一定時間で取得
+--GetChannelHistory
+----getChannelHistory(いろいろ)　→　URI,ChannelNameから取得
+----jsonToMessage(String)　→　String(json)からList<Message>
+--GetChannels
+----getChannel()　→　URIから取得
+----jsonToListChannel(String)　→　String(json)からList<Channel>
+----ChannelNameToId(String)　→　ChannelNameからChannelId
+--GetUsers
+----getUsers()　→　URIから取得
+----jsonToListUser(String)　→　String(json)からList<User>
+----userIdToName(String)　→　UserIdからUserName
