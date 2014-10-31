@@ -9,8 +9,10 @@ import twgitter.slack.json.User;
 
 public class HistoryGetting {
 	public static Date historyGetting(Date now,String channel) throws Exception {
+		GetUsers getU = new GetUsers();
+
 		List<Message> messages = GetChannelHistory.jsonToMessage(GetChannelHistory.getChannelHistory(channel));
-		List<User> users = GetUsers.jsonToListUser(GetUsers.getUsers());
+		List<User> users = getU.jsonToList(getU.getJSONString());
 
 		for(int i = messages.size()-1;i>=0;i--)
 		{
@@ -34,7 +36,7 @@ public class HistoryGetting {
 					id = thisM.getUser();
 				}
 
-				String name = GetUsers.userIdToName(id,users);
+				String name = getU.nameToId(id);
 
 				System.out.println("[Slack][#" + channel + "][" + name + "]" + thisM.getText());
 				Test.println("[Slack][#" + channel + "][" + name + "]" + thisM.getText());

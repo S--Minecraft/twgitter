@@ -22,6 +22,6 @@ public class UserStream extends Thread{
 
 	public UserStream(Configuration cfg)
 	{
-		this.cfg = cfg;
+		UserStream.cfg = cfg;
 	}
 }

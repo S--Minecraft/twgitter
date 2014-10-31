@@ -6,8 +6,11 @@ import java.net.URI;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class GetHTTP {
+	public static boolean header;
+
 	/**
 	 * HTTP接続して内容を取得
 	 * @param URI アクセスするURI
@@ -32,24 +35,23 @@ public class GetHTTP {
 		}
 
         // ヘッダ情報を出力
-		/*
-		Map<String, List<String>> headers = connection.getHeaderFields();
-		for (Object key : headers.keySet()) {
-			System.out.println("[Misc]HTTP Headers{" + key + ": " + headers.get(key) + "}");
+		if(header)
+		{
+			Map<String, List<String>> headers = connection.getHeaderFields();
+			for (Object key : headers.keySet()) {
+				System.out.println("[Misc]HTTP Headers{" + key + ": " + headers.get(key) + "}");
+			}
 		}
-		*/
 
 		// コンテンツを出力
-		/*
 		BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), CharCode));
 		String buffer = reader.readLine();
 		System.out.println("[Misc]Successed to get HTTP");
 		while(null != buffer)
 		{
-			System.out.println("G:" + buffer);
+			print(buffer);
 			buffer = reader.readLine();
 		}
-		*/
 	}
 
 	public static void AccessHTTP(String URI,String[][] Header) throws Exception{
@@ -146,5 +148,9 @@ public class GetHTTP {
 		out3 = AccessHTTPString(URI,Header2,CharCode2);
 
 		return out3;
+	}
+
+	public static void print(String text) {
+
 	}
 }

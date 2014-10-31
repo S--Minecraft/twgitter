@@ -14,8 +14,10 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 public class GetChannelHistory {
+	private static GetChannels getC = new GetChannels();
+
 	public static String getChannelHistory(String channelName,String lastest,String oldest,int count) throws Exception{
-		String channelId = GetChannels.ChannelNameToId(channelName);
+		String channelId = getC.nameToId(channelName);
 
 		String URI = "https://slack.com/api/channels.history?token=" + TestThread.allTokens.getSlackToken() + "&channel=" + channelId + "&lastest=" + lastest + "&oldest=" + oldest + "&count=" + count;
 		List<String> json = GetHTTP.AccessHTTPString(URI);
@@ -26,7 +28,7 @@ public class GetChannelHistory {
 	}
 
 	public static String getChannelHistory(String channelName) throws Exception{
-		String channelId = GetChannels.ChannelNameToId(channelName);
+		String channelId = getC.nameToId(channelName);
 
 		String URI = "https://slack.com/api/channels.history?token=" + TestThread.allTokens.getSlackToken() + "&channel=" + channelId;
 		List<String> json = GetHTTP.AccessHTTPString(URI);

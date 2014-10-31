@@ -20,7 +20,7 @@ public class MessageCellTest extends Application{
 	public static void main(String[] args) throws Exception{
 		Application.launch(args);
 	}
-	public static void main() throws Exception{
+	public void main() throws Exception{
 		String[] args = {""};
 		Application.launch(args);
 	}

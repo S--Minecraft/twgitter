@@ -4,13 +4,22 @@ import java.util.List;
 
 import twgitter.TestThread;
 import twgitter.get.GetHTTP;
+import twgitter.get.GetJsonThenListI;
 import twgitter.slack.json.User;
 import twgitter.slack.json.UserFirst;
 
 import com.google.gson.Gson;
 
-public class GetUsers {
-	public static String getUsers() throws Exception {
+public class GetUsers implements GetJsonThenListI{
+	public List<User> users;
+	/**
+	 * jsonを取得する
+	 *
+	 * @return channelの情報のjson
+	 * @throws Exception
+	 */
+	@Override
+	public String getJSONString() throws Exception {
 		String URI = "https://slack.com/api/users.list?token=" + TestThread.allTokens.getSlackToken();
 		List<String> json = GetHTTP.AccessHTTPString(URI);
 
@@ -19,17 +28,20 @@ public class GetUsers {
 		return jsonString;
 	}
 
-	public static List<User> jsonToListUser(String json) {
+	@Override
+	public List<User> jsonToList(String json) {
 		Gson gson = new Gson();
 		UserFirst userFirst = gson.fromJson(json.toString(),UserFirst.class);
 		List<User> users = userFirst.getMembers();
+		this.users = users;
 		return users;
 	}
 
-	public static String userIdToName(String id, List<User> users) {
+	@Override
+	public String nameToId(String wantNameOrId) throws Exception {
 		String name = "Couldn't find name...";
 
-		if(id.equals("USLACKBOT"))
+		if(wantNameOrId.equals("USLACKBOT"))
 		{
 			name = "slackbot";
 			return name;
@@ -41,7 +53,7 @@ public class GetUsers {
 			System.out.println(users.get(i).getId());
 			System.out.println(users.get(i).getName());
 			*/
-			if(id.equals(users.get(i).getId()))
+			if(wantNameOrId.equals(users.get(i).getId()))
 			{
 				name = users.get(i).getName();
 				/*
