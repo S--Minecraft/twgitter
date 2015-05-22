@@ -16,8 +16,8 @@ public class LoadProperties {
 	//C:\Users\ユーザー名\AppData\Local\Temp\twgitter\config
 	public static AllTokens loadTokenConfig() throws ParseException
 	{
-		String basepath = System.getProperty("java.io.tmpdir");
-		String filename = basepath + "\\twgitter\\config\\tokens.cfg";  // プロパティファイルのファイル名
+		String basepath = System.getProperty("user.home");
+		String filename = basepath + "\\AppData\\Local\\Twgitter\\config\\tokens.cfg";  // プロパティファイルのファイル名
 
 		Properties cfg = new Properties();
 
@@ -67,8 +67,8 @@ public class LoadProperties {
 
 	public static void setTokenConfig(AllTokens allTokens) throws FileNotFoundException, IOException
 	{
-		String basepath = System.getProperty("java.io.tmpdir");
-		String filename = basepath + "\\twgitter\\config\\tokens.cfg";  // プロパティファイルのファイル名
+		String basepath = System.getProperty("user.home");
+		String filename = basepath + "\\AppData\\Local\\Twgitter\\config\\tokens.cfg";  // プロパティファイルのファイル名
 
 		Properties cfg = new Properties();
 
@@ -98,15 +98,15 @@ public class LoadProperties {
 		cfg.setProperty("Twitter.AccessToken", allTokens.getTwitterAccessToken());
 		cfg.setProperty("Twitter.AccessTokenSecret", allTokens.getTwitterAccessTokenSecret());
 
-		cfg.store(new FileOutputStream(filename), " Twgitter token config\n# A config for tokens\n#");
+		cfg.store(new FileOutputStream(filename), " Twgitter Token Configuration\n# A config for tokens\n#");
 
 		System.out.println("[Misc][Config]Successfully finished writing to the token config.");
 	}
 
 	public static GeneralConfig loadGeneralConfig() throws ParseException
 	{
-		String basepath = System.getProperty("java.io.tmpdir");
-		String filename = basepath + "\\twgitter\\config\\general.cfg";  // プロパティファイルのファイル名
+		String basepath = System.getProperty("user.home");
+		String filename = basepath + "\\AppData\\Local\\Twgitter\\config\\general.cfg";  // プロパティファイルのファイル名
 
 		Properties cfg = new Properties();
 
@@ -161,8 +161,8 @@ public class LoadProperties {
 	}
 
 	public static OtherConfig loadOtherConfig() {
-		String basepath = System.getProperty("java.io.tmpdir");
-		String filename = basepath + "\\twgitter\\config\\other.cfg";  // プロパティファイルのファイル名
+		String basepath = System.getProperty("user.home");
+		String filename = basepath + "\\AppData\\Local\\Twgitter\\config\\other.cfg";  // プロパティファイルのファイル名
 
 		Properties cfg = new Properties();
 

@@ -17,6 +17,7 @@ local.properties
 .loadpath
 .metadata/
 RemoteSystemsTempFiles/
+.recommenders
 
 # External tool builders
 .externalToolBuilders/

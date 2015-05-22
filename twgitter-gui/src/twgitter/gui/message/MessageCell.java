@@ -245,6 +245,7 @@ public class MessageCell extends ListCell<MessageModel>{
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private Hyperlink createTagLink(String screenName)
 	{
 		Hyperlink hyperlink = new Hyperlink(screenName);
