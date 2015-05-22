@@ -25,6 +25,7 @@ slack(https://slack.com/).
 ==========
 
 Used Libraries(使用ライブラリ)  
+-JavaFX(http://www.oracle.com/technetwork/jp/java/javafx/overview/)  
 -Gson(https://code.google.com/p/google-gson/)  
 -IRCLib(http://moepii.sourceforge.net/)  
--twitter4j(http://twitter4j.org/ja/index.html)  
+-twitter4j(http://twitter4j.org/ja/)  
